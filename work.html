@@ -32,6 +32,16 @@
       transition: all 0.3s ease;
     }
 
+    .publication-list {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .publication-item + .publication-item {
+      border-top: 1px dashed rgba(65, 51, 214, 0.25);
+      padding-top: 1.5rem;
+    }
+
     .publication-item:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 20px var(--shadow);
@@ -256,16 +266,18 @@
     <!-- Publications -->
     <div class="publications">
       <h3>posters & presentations</h3>
-      <div class="publication-item">
-        <div class="authors">mendki t., srivastava s. & soni a. (2025).</div>
-        <div class="title">hand-engineered image-computable models can still outperform DNNs in v1 similarity.</div>
-        <div class="venue">unireps (neurips 2025 workshop) poster</div>
+      <div class="publication-list">
+        <div class="publication-item">
+          <div class="authors">mendki t., srivastava s. & soni a. (2025).</div>
+          <div class="title">hand-engineered image-computable models can still outperform DNNs in v1 similarity.</div>
+          <div class="venue">unireps (neurips 2025 workshop) poster</div>
+        </div>
 
-        
-
-        <div class="authors">mendki, t. & eckstein, m. (2025).</div>
-        <div class="title">humans and neural networks learn to use background structures for efficient visual search.</div>
-        <div class="venue">urca poster & oral talk</div>
+        <div class="publication-item">
+          <div class="authors">mendki, t. & eckstein, m. (2025).</div>
+          <div class="title">humans and neural networks learn to use background structures for efficient visual search.</div>
+          <div class="venue">urca poster & oral talk</div>
+        </div>
       </div>
     </div>
   </main>
