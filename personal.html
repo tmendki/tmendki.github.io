@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>personal · tanish mendki</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== CURRENTLY GRID ===== */
+    .currently-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .currently-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.4rem;
+      transition: border-color var(--transition), background var(--transition);
+    }
+
+    .currently-card:hover {
+      border-color: var(--accent-border);
+      background: var(--bg-card-hover);
+    }
+
+    .currently-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .currently-icon {
+      font-size: 1.1rem;
+    }
+
+    .currently-label {
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      color: var(--accent-light);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .media-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .media-item:last-child {
+      border-bottom: none;
+    }
+
+    .media-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .media-sub {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .media-status {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 3px;
+      margin-top: 0.15rem;
+      width: fit-content;
+    }
+
+    .status-watching {
+      background: rgba(59, 130, 246, 0.1);
+      color: #93c5fd;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .status-reading {
+      background: var(--green-dim);
+      color: var(--green);
+      border: 1px solid var(--green-border);
+    }
+
+    .status-finished {
+      background: var(--accent-dim);
+      color: var(--accent-xlight);
+      border: 1px solid var(--accent-border);
+    }
+
+    /* ===== INTERESTS GRID ===== */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .interest-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.4rem;
+      transition: border-color var(--transition);
+    }
+
+    .interest-card:hover {
+      border-color: var(--accent-border);
+    }
+
+    .interest-title {
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      color: var(--accent-light);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      margin-bottom: 0.75rem;
+    }
+
+    .interest-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    .interest-text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ===== SPOTIFY CARD ===== */
+    .spotify-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      transition: all var(--transition);
+      margin-top: 1rem;
+    }
+
+    .spotify-card:hover {
+      border-color: rgba(29, 185, 84, 0.35);
+      background: var(--bg-card-hover);
+      transform: translateY(-1px);
+    }
+
+    .spotify-icon {
+      width: 40px;
+      height: 40px;
+      fill: #1db954;
+      flex-shrink: 0;
+    }
+
+    .spotify-text .label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.15rem;
+    }
+
+    .spotify-text .name {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .spotify-arrow {
+      margin-left: auto;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      transition: color var(--transition);
+    }
+
+    .spotify-card:hover .spotify-arrow {
+      color: #1db954;
+    }
+
+    @media (max-width: 768px) {
+      .currently-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .interests-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="brand"><span class="bracket">[</span>tm<span class="bracket">]</span></a>
+    <nav>
+      <a href="index.html">home</a>
+      <a href="work.html">work</a>
+      <a href="experience.html">experience</a>
+      <a href="personal.html" class="active">personal</a>
+    </nav>
+    <div class="nav-right">
+      <a href="TanishMendki_CV.pdf" download class="cv-btn">download cv ↓</a>
+      <div class="social">
+        <a href="https://open.spotify.com/user/tanish" target="_blank" aria-label="spotify">
+          <svg viewBox="0 0 168 168"><path d="M84 0a84 84 0 100 168 84 84 0 000-168zm38.3 120.4c-1.4 2.4-4.4 3.1-6.8 1.7-18.7-11.5-42.2-14.1-70-7.6-2.7.6-5.4-1-6.1-3.7-.7-2.7 1-5.4 3.7-6.1 30.8-7 56.6-4.1 77.2 8.6 2.3 1.4 3 4.4 1.7 6.9zm9.7-20.4c-1.8 2.9-5.6 3.9-8.5 2.1-21.5-13.2-54.2-17-79.6-9.2-3.3 1-6.8-.9-7.8-4.2-1-3.3.9-6.8 4.2-7.8 30.3-9.2 66.7-5 91.5 10.4 2.9 1.8 3.9 5.6 2.1 8.7zm.8-22.4C107.9 64 67.4 62.7 41 70c-3.9 1.1-7.9-1.2-9-5.1-1.1-3.9 1.2-7.9 5.1-9C68.4 47 114.2 48.4 140.2 65.3c3.3 2.1 4.3 6.5 2.1 9.8z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/tanishmendki" target="_blank" aria-label="linkedin">
+          <svg viewBox="0 0 448 512"><path d="M100.3 448H7V148.9h93.3V448zM53.7 108.1C24.1 108.1 0 83.5 0 53.9 0 24.3 24.6 0 54.4 0s54.4 24.3 54.4 53.9c-.1 29.6-24.5 54.2-55.1 54.2zM447.9 448h-93V302.4c0-34.7-.7-79.2-48.1-79.2-48.2 0-55.6 37.7-55.6 76.6V448h-93.1V148.9h89.5v40.8h1.3c12.5-23.7 43-48.7 88.5-48.7 94.7 0 112.1 62.4 112.1 143.3V448z"/></svg>
+        </a>
+        <a href="https://github.com/tmendki" target="_blank" aria-label="github">
+          <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <span class="page-label">// beyond the cv</span>
+      <h1>personal</h1>
+      <p>
+        the stuff that doesn't go on a resume — what i'm watching, reading,
+        and thinking about when i'm not in the lab or building things.
+      </p>
+    </div>
+
+    <!-- Currently -->
+    <div class="section-header fade-in-up">
+      <div class="section-node"></div>
+      <h2>currently</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="currently-grid">
+
+      <!-- Watching -->
+      <div class="currently-card fade-in-up">
+        <div class="currently-header">
+          <span class="currently-icon">📺</span>
+          <span class="currently-label">watching</span>
+        </div>
+
+        <div class="media-item">
+          <div class="media-title">Severance</div>
+          <div class="media-sub">Apple TV+ · Season 2</div>
+          <span class="media-status status-watching">watching</span>
+        </div>
+
+        <div class="media-item">
+          <div class="media-title">The Bear</div>
+          <div class="media-sub">FX · Season 3</div>
+          <span class="media-status status-watching">watching</span>
+        </div>
+
+        <div class="media-item">
+          <div class="media-title">Succession</div>
+          <div class="media-sub">HBO</div>
+          <span class="media-status status-finished">finished</span>
+        </div>
+      </div>
+
+      <!-- Reading -->
+      <div class="currently-card fade-in-up">
+        <div class="currently-header">
+          <span class="currently-icon">📚</span>
+          <span class="currently-label">reading</span>
+        </div>
+
+        <div class="media-item">
+          <div class="media-title">The Pragmatic Programmer</div>
+          <div class="media-sub">Hunt &amp; Thomas</div>
+          <span class="media-status status-reading">reading</span>
+        </div>
+
+        <div class="media-item">
+          <div class="media-title">Thinking, Fast and Slow</div>
+          <div class="media-sub">Daniel Kahneman</div>
+          <span class="media-status status-reading">reading</span>
+        </div>
+
+        <div class="media-item">
+          <div class="media-title">The Brain That Changes Itself</div>
+          <div class="media-sub">Norman Doidge</div>
+          <span class="media-status status-finished">finished</span>
+        </div>
+      </div>
+
+      <!-- Listening -->
+      <div class="currently-card fade-in-up">
+        <div class="currently-header">
+          <span class="currently-icon">🎵</span>
+          <span class="currently-label">listening</span>
+        </div>
+
+        <div class="media-item">
+          <div class="media-title">Add your current artists here</div>
+          <div class="media-sub">Update this with your favorites</div>
+        </div>
+
+        <div class="media-item">
+          <div class="media-title">Add another artist</div>
+          <div class="media-sub">Album or vibe</div>
+        </div>
+
+        <a href="https://open.spotify.com/user/tanish" target="_blank" class="spotify-card" style="margin-top:0.75rem;padding:0.75rem 1rem;">
+          <svg class="spotify-icon" style="width:28px;height:28px;" viewBox="0 0 168 168"><path d="M84 0a84 84 0 100 168 84 84 0 000-168zm38.3 120.4c-1.4 2.4-4.4 3.1-6.8 1.7-18.7-11.5-42.2-14.1-70-7.6-2.7.6-5.4-1-6.1-3.7-.7-2.7 1-5.4 3.7-6.1 30.8-7 56.6-4.1 77.2 8.6 2.3 1.4 3 4.4 1.7 6.9zm9.7-20.4c-1.8 2.9-5.6 3.9-8.5 2.1-21.5-13.2-54.2-17-79.6-9.2-3.3 1-6.8-.9-7.8-4.2-1-3.3.9-6.8 4.2-7.8 30.3-9.2 66.7-5 91.5 10.4 2.9 1.8 3.9 5.6 2.1 8.7zm.8-22.4C107.9 64 67.4 62.7 41 70c-3.9 1.1-7.9-1.2-9-5.1-1.1-3.9 1.2-7.9 5.1-9C68.4 47 114.2 48.4 140.2 65.3c3.3 2.1 4.3 6.5 2.1 9.8z"/></svg>
+          <div class="spotify-text">
+            <div class="label">spotify profile</div>
+            <div class="name">tanish</div>
+          </div>
+          <span class="spotify-arrow">↗</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Interests -->
+    <div class="section-header fade-in-up">
+      <div class="section-node"></div>
+      <h2>interests &amp; beyond</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="interests-grid">
+      <div class="interest-card fade-in-up">
+        <div class="interest-title">// the research side of me</div>
+        <p class="interest-text">
+          i'm genuinely fascinated by the question of <strong>how intelligent systems — biological or artificial — learn to see</strong>.
+          the fact that humans can effortlessly recognize objects in cluttered scenes, while even the best neural networks
+          can fail in systematic ways, feels like one of the most interesting open problems in science.
+          most of my time goes here.
+        </p>
+      </div>
+
+      <div class="interest-card fade-in-up">
+        <div class="interest-title">// sports &amp; analytics</div>
+        <p class="interest-text">
+          i co-founded <strong>Gaucho Sports Analytics</strong> because i believe sports is one of the most
+          accessible entry points for learning data science. i love the intersection of
+          <strong>statistics and competition</strong> — there's something satisfying about finding signal in
+          something as chaotic as a basketball game.
+        </p>
+      </div>
+
+      <div class="interest-card fade-in-up">
+        <div class="interest-title">// dance &amp; culture</div>
+        <p class="interest-text">
+          as president of <strong>UCSB Dhadkan</strong>, i spend a surprising amount of time thinking about
+          event production, fundraising, and team management. running a <strong>501(c)(3) non-profit</strong>
+          while taking a full course load has taught me more about leadership than anything else.
+          it's also just a lot of fun.
+        </p>
+      </div>
+
+      <div class="interest-card fade-in-up">
+        <div class="interest-title">// day to day</div>
+        <p class="interest-text">
+          you'll find me in a café with my laptop more often than not.
+          i'm a <strong>coffee person</strong>, a firm believer that the best thinking happens
+          in the middle of a long walk, and permanently interested in the question of
+          how minds — human and machine — actually work.
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    © 2026 tanish mendki · <a href="https://github.com/tmendki">tmendki</a>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+    );
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

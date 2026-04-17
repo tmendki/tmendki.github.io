@@ -5,287 +5,195 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>experience · tanish mendki</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Experience page specific styles */
-    
-    /* Leadership section specific styles */
-    .leadership-card {
-      background: var(--bg-secondary);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      border-left: 4px solid var(--accent);
-      transition: all 0.3s ease;
-    }
-
-    .leadership-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 25px var(--shadow);
-    }
-
-    .leadership-card h3 {
-      font-size: 1.4rem;
-      color: var(--accent);
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    .gallery {
-      margin: 1.5rem 0;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.8rem;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 8px;
-      border: 2px solid #eee;
-      transition: all 0.3s ease;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-      border-color: var(--accent);
-    }
-
-    .facts {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1.5rem 0;
-    }
-
-    .fact-chip {
-      padding: 0.4rem 0.8rem;
-      border: 2px solid var(--accent);
-      border-radius: 25px;
-      font-size: 0.85rem;
-      background: white;
-      color: var(--accent);
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    .fact-chip:hover {
-      background: var(--accent);
-      color: white;
-    }
-
-    .contrib {
-      list-style: none;
-      margin: 1rem 0;
-    }
-
-    .contrib li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.8rem;
-      line-height: 1.6;
-    }
-
-    .contrib li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    .leadership-title {
-      font-size: 1.2rem;
-      color: var(--fg);
-      margin: 1.5rem 0 0.5rem 0;
-      font-weight: 600;
-    }
-
-    /* Experience page specific responsive styles */
-    @media (max-width: 860px) {
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .gallery img {
-        height: 160px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .leadership-card {
-        padding: 1.5rem;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .gallery {
-        grid-template-columns: 1fr;
-      }
-      
-      .gallery img {
-        height: 200px;
-      }
-
-      .facts {
-        flex-direction: column;
-      }
-    }
-  </style>
 </head>
-
 <body>
+
   <!-- Header -->
   <header>
-    <div class="brand">tanish mendki</div>
+    <a href="index.html" class="brand"><span class="bracket">[</span>tm<span class="bracket">]</span></a>
     <nav>
       <a href="index.html">home</a>
-      <a href="work.html">my work</a>
-      <a href="experience.html">experience</a>
+      <a href="work.html">work</a>
+      <a href="experience.html" class="active">experience</a>
+      <a href="personal.html">personal</a>
     </nav>
-    <div class="social">
-      <a href="https://open.spotify.com/user/tanish" target="_blank" aria-label="spotify">
-        <svg viewBox="0 0 168 168" role="img">
-          <path d="M84 0a84 84 0 100 168 84 84 0 000-168zm38.3 120.4c-1.4 2.4-4.4 3.1-6.8 1.7-18.7-11.5-42.2-14.1-70-7.6-2.7.6-5.4-1-6.1-3.7-.7-2.7 1-5.4 3.7-6.1 30.8-7 56.6-4.1 77.2 8.6 2.3 1.4 3 4.4 1.7 6.9zm9.7-20.4c-1.8 2.9-5.6 3.9-8.5 2.1-21.5-13.2-54.2-17-79.6-9.2-3.3 1-6.8-.9-7.8-4.2-1-3.3.9-6.8 4.2-7.8 30.3-9.2 66.7-5 91.5 10.4 2.9 1.8 3.9 5.6 2.1 8.7zm.8-22.4C107.9 64 67.4 62.7 41 70c-3.9 1.1-7.9-1.2-9-5.1-1.1-3.9 1.2-7.9 5.1-9C68.4 47 114.2 48.4 140.2 65.3c3.3 2.1 4.3 6.5 2.1 9.8z"/>
-        </svg>
-      </a>
-      <a href="https://www.linkedin.com/in/tanishmendki" target="_blank" aria-label="linkedin">
-        <svg viewBox="0 0 448 512" role="img">
-          <path d="M100.3 448H7V148.9h93.3V448zM53.7 108.1C24.1 108.1 0 83.5 0 53.9 0 24.3 24.6 0 54.4 0s54.4 24.3 54.4 53.9c-.1 29.6-24.5 54.2-55.1 54.2zM447.9 448h-93V302.4c0-34.7-.7-79.2-48.1-79.2-48.2 0-55.6 37.7-55.6 76.6V448h-93.1V148.9h89.5v40.8h1.3c12.5-23.7 43-48.7 88.5-48.7 94.7 0 112.1 62.4 112.1 143.3V448z"/>
-        </svg>
-      </a>
-      <a href="https://github.com/tmendki" target="_blank" aria-label="github">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-        </svg>
-      </a>
+    <div class="nav-right">
+      <a href="TanishMendki_CV.pdf" download class="cv-btn">download cv ↓</a>
+      <div class="social">
+        <a href="https://open.spotify.com/user/tanish" target="_blank" aria-label="spotify">
+          <svg viewBox="0 0 168 168"><path d="M84 0a84 84 0 100 168 84 84 0 000-168zm38.3 120.4c-1.4 2.4-4.4 3.1-6.8 1.7-18.7-11.5-42.2-14.1-70-7.6-2.7.6-5.4-1-6.1-3.7-.7-2.7 1-5.4 3.7-6.1 30.8-7 56.6-4.1 77.2 8.6 2.3 1.4 3 4.4 1.7 6.9zm9.7-20.4c-1.8 2.9-5.6 3.9-8.5 2.1-21.5-13.2-54.2-17-79.6-9.2-3.3 1-6.8-.9-7.8-4.2-1-3.3.9-6.8 4.2-7.8 30.3-9.2 66.7-5 91.5 10.4 2.9 1.8 3.9 5.6 2.1 8.7zm.8-22.4C107.9 64 67.4 62.7 41 70c-3.9 1.1-7.9-1.2-9-5.1-1.1-3.9 1.2-7.9 5.1-9C68.4 47 114.2 48.4 140.2 65.3c3.3 2.1 4.3 6.5 2.1 9.8z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/tanishmendki" target="_blank" aria-label="linkedin">
+          <svg viewBox="0 0 448 512"><path d="M100.3 448H7V148.9h93.3V448zM53.7 108.1C24.1 108.1 0 83.5 0 53.9 0 24.3 24.6 0 54.4 0s54.4 24.3 54.4 53.9c-.1 29.6-24.5 54.2-55.1 54.2zM447.9 448h-93V302.4c0-34.7-.7-79.2-48.1-79.2-48.2 0-55.6 37.7-55.6 76.6V448h-93.1V148.9h89.5v40.8h1.3c12.5-23.7 43-48.7 88.5-48.7 94.7 0 112.1 62.4 112.1 143.3V448z"/></svg>
+        </a>
+        <a href="https://github.com/tmendki" target="_blank" aria-label="github">
+          <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content -->
   <main>
     <div class="page-header">
+      <span class="page-label">// professional &amp; leadership</span>
       <h1>experience</h1>
       <p>
-        professional roles, research positions, and leadership experiences that have shaped
-        my journey in neuroscience, machine learning, and community building
+        roles and positions that have shaped my work across neuroscience research,
+        data engineering, and community building.
       </p>
     </div>
 
-    <!-- Professional Experience Section -->
-    <div class="section-header">
-      <svg class="icon" viewBox="0 0 24 24">
-        <path d="M9 3a2 2 0 00-2 2v1H5a3 3 0 00-3 3v8a4 4 0 004 4h12a4 4 0 004-4V9a3 3 0 00-3-3h-2V5a2 2 0 00-2-2H9zm2 3h2V6h-2V6z"/>
-      </svg>
-      <h2>professional experience</h2>
+    <!-- Professional -->
+    <div class="section-header fade-in-up">
+      <div class="section-node"></div>
+      <h2>professional</h2>
+      <div class="section-line"></div>
     </div>
 
-    <!-- Software Engineering Intern -->
-    <article class="exp-card">
-      <div class="role-header">
-        <svg class="role-icon" viewBox="0 0 24 24">
-          <path d="M9 3a2 2 0 00-2 2v1H5a3 3 0 00-3 3v8a4 4 0 004 4h12a4 4 0 004-4V9a3 3 0 00-3-3h-2V5a2 2 0 00-2-2H9zm2 3h2V6h-2V6z"/>
-        </svg>
-        <div class="role-info">
-          <h3>software engineering intern · docyt ai</h3>
-          <div class="role-meta">jun–dec 2024 · airflow, dbt, sql, metabase</div>
+    <div class="work-grid">
+      <article class="exp-card fade-in-up">
+        <div class="card-top">
+          <div>
+            <div class="card-title">Software Engineering Intern · Docyt AI</div>
+            <div class="card-meta">
+              <span>Mountain View, CA</span><span class="sep">·</span>
+              <span>June – December 2024</span>
+            </div>
+          </div>
+          <div class="tags" style="margin:0;flex-shrink:0;">
+            <span class="tag">Airflow</span><span class="tag">dbt</span>
+            <span class="tag">SQL</span><span class="tag">Metabase</span><span class="tag">Python</span>
+          </div>
         </div>
-      </div>
-      <ul class="bullets">
-        <li>built and maintained <strong>airflow</strong> dags to automate ingestion, validation, and transformation of financial data across environments</li>
-        <li>modeled business logic in <strong>dbt</strong> (tests, sources, exposures), improving reliability and developer onboarding time</li>
-        <li>designed <strong>metabase</strong> dashboards for ops & product, wiring permissions and scheduled email pulses</li>
-        <li>hardened pipelines with data-quality checks (row-count deltas, schema drift alerts) and centralized logging</li>
-        <li>contributed to a lightweight ci/cd workflow for data models; introduced code review checklists and run-book docs</li>
-      </ul>
-    </article>
+        <ul class="bullets">
+          <li>built and maintained <strong>Airflow DAGs</strong> with custom Python operators to automate ingestion, validation, and transformation of daily financial and log data</li>
+          <li>modeled business logic in <strong>dbt</strong> — versioned models, macros, tests, sources — improving pipeline reliability and cutting deployment errors</li>
+          <li>translated business specs into schema; built <strong>Metabase dashboards</strong> and SQL visualizations used by ops and product teams</li>
+          <li>hardened pipelines with data-quality checks (row-count deltas, schema drift alerts) and centralized logging</li>
+          <li>worked cross-functionally to ensure all teams had the data and visuals they needed</li>
+        </ul>
+      </article>
+    </div>
 
-    <!-- Undergraduate Researcher -->
-    <article class="exp-card">
-      <div class="role-header">
-        <svg class="role-icon" viewBox="0 0 24 24">
-          <path d="M9 2v2l3 5v6.2l-4.1 4.1A5 5 0 0012 22a5 5 0 004.1-2.7L12 15.2V9l3-5V2H9z"/>
-        </svg>
-        <div class="role-info">
-          <h3>undergraduate researcher & lab manager · vision & image understanding lab (ucsb)</h3>
-          <div class="role-meta">sep 2023-present · deep learning, experimental design, r/python</div>
+    <!-- Research -->
+    <div class="section-header fade-in-up">
+      <div class="section-node"></div>
+      <h2>research</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="work-grid">
+      <article class="exp-card fade-in-up">
+        <div class="card-top">
+          <div>
+            <div class="card-title">Undergraduate Researcher &amp; Lab Manager · Vision &amp; Image Understanding Lab</div>
+            <div class="card-meta">
+              <span>UC Santa Barbara</span><span class="sep">·</span>
+              <span>September 2023 – Present</span>
+            </div>
+          </div>
+          <span class="badge badge-active" style="flex-shrink:0;">active</span>
         </div>
-      </div>
-      <ul class="bullets">
-        <li>developed deep-learning pipelines to study <strong>visual search</strong> and spatial attention; ran controlled analyses in pytorch</li>
-        <li>led a weekly python series; mentored ~60 ras on data handling, plotting, and reproducible research practices</li>
-        <li>designed experiments, prepared stimuli & counterbalancing, and maintained code for preprocessing & qc</li>
-        <li>standardized lab workflows (git repos, data files, instruction docs, equipment sign ups) to reduce onboarding time</li>
-        <li>collaborated on posters & talks; distilled complex results into accessible visuals and summaries</li>
-      </ul>
-    </article>
+        <div class="tags">
+          <span class="tag">PyTorch</span><span class="tag">NumPy</span>
+          <span class="tag">scikit-learn</span><span class="tag">Python</span><span class="tag">Experimental Design</span>
+        </div>
+        <ul class="bullets">
+          <li>computational-neuroscience research using <strong>deep learning to model human visual perception and cognition</strong></li>
+          <li>harnessing CNNs to decode visual search amid reliable distractors — URCA-funded, published at NeurIPS 2025</li>
+          <li>shipped multi-disciplinary research projects; supported graduate-led studies from design to analysis</li>
+          <li><strong>lab manager:</strong> streamlined workflows, centralized communication, and built a self-service equipment portal (HTML/CSS/JS + Google Apps Script)</li>
+          <li>lead and mentor <strong>60+ research assistants</strong>; deliver weekly coding lectures in computational-neuroscience methods</li>
+        </ul>
+      </article>
+    </div>
 
-    <!-- Leadership Section -->
-    <div class="section-header">
-      <svg class="icon" viewBox="0 0 24 24">
-        <path d="M3 3h2v18H3V3zm16 8h2v10h-2V11zM7 13h2v8H7v-8zm4-6h2v14h-2V7z"/>
-      </svg>
+    <!-- Leadership -->
+    <div class="section-header fade-in-up">
+      <div class="section-node"></div>
       <h2>leadership</h2>
+      <div class="section-line"></div>
     </div>
 
     <!-- Gaucho Sports Analytics -->
-    <article class="leadership-card">
-      <h3 href="https://gauchosportsanalytics.com/">gaucho sports analytics</h3>
-      
+    <article class="leadership-card fade-in-up">
+      <div class="card-top">
+        <div>
+          <h3>Gaucho Sports Analytics</h3>
+          <div class="leadership-role-label">Co-Founder &amp; Vice President · October 2024 – Present</div>
+        </div>
+        <span class="badge badge-active">active</span>
+      </div>
+
       <div class="gallery">
-        <img src="images/gsa-1.jpeg" alt="gaucho sports analytics - event 1" />
-        <img src="images/gsa-2.png" alt="gaucho sports analytics - logo" />
-        <img src="images/gsa-3.jpeg" alt="gaucho sports analytics - event 3" />
-        <img src="images/gsa-4.JPG" alt="gaucho sports analytics - event 4" />
+        <img src="images/gsa-1.jpeg" alt="gaucho sports analytics event" />
+        <img src="images/gsa-2.png" alt="gaucho sports analytics logo" />
+        <img src="images/gsa-3.jpeg" alt="gaucho sports analytics workshop" />
+        <img src="images/gsa-4.JPG" alt="gaucho sports analytics showcase" />
       </div>
-      
-      <div class="leadership-title">quick facts</div>
+
       <div class="facts">
-        <span class="fact-chip">student-run sports analytics club</span>
-        <span class="fact-chip">workshops & project sprints</span>
-        <span class="fact-chip">collabs with athletic teams on campus</span>
-        <span class="fact-chip">open-source tool creation</span>
+        <span class="fact-chip">first sports analytics club at UCSB</span>
+        <span class="fact-chip">workshops &amp; project sprints</span>
+        <span class="fact-chip">D1 basketball &amp; baseball collabs</span>
+        <span class="fact-chip">100+ event attendees</span>
       </div>
-      
-      <div class="leadership-title">my role & contributions</div>
-      <ul class="contrib">
-        <li>co-founded the org; set up github, onboarding docs, and project templates</li>
-        <li>led sessions on model evaluation, feature engineering, and sports-specific data analyses</li>
-        <li>organized team projects (e.g., basketball analytics, prediction challenges) and student showcases</li>
-        <li>mentored members on presenting findings with clear visuals and reproducible code</li>
+
+      <div class="sub-label">contributions</div>
+      <ul class="bullets">
+        <li>co-founded and established the <strong>first sports analytics organization at UCSB</strong>; set up GitHub, onboarding docs, and project templates</li>
+        <li>organized workshops covering EDA to deep learning methods; hosted events with <strong>100+ attendees</strong></li>
+        <li>leading data-driven projects supporting <strong>UCSB D1 basketball and baseball teams</strong>, applying statistical modeling and machine learning for performance analysis</li>
+        <li>spearheaded a team of 5 students in an analytics project for the basketball team — created a <strong>centralized player statistics database</strong> now in use for multiple modeling efforts</li>
       </ul>
     </article>
 
-    <!-- UCSB Dhadak -->
-    <article class="leadership-card">
-      <h3>ucsb dhadkan</h3>
-      
+    <!-- UCSB Dhadkan -->
+    <article class="leadership-card fade-in-up">
+      <div class="card-top">
+        <div>
+          <h3>UCSB Dhadkan</h3>
+          <div class="leadership-role-label">President · October 2023 – Present</div>
+        </div>
+        <span class="badge badge-active">active</span>
+      </div>
+
       <div class="gallery">
-        <img src="images/dhadkan-1.jpeg" alt="ucsb dhadkan - pre-show taco bell" />
-        <img src="images/dhadkan-2.jpg" alt="ucsb dhadkan - logo" />
-        <img src="images/dhadkan-3.JPEG" alt="ucsb dhadkan - stage and tech" />
-        <img src="images/dhadkan-4.JPG" alt="ucsb dhadkan - executive board" />
+        <img src="images/dhadkan-1.jpeg" alt="ucsb dhadkan pre-show" />
+        <img src="images/dhadkan-2.jpg" alt="ucsb dhadkan logo" />
+        <img src="images/dhadkan-3.JPEG" alt="ucsb dhadkan stage" />
+        <img src="images/dhadkan-4.JPG" alt="ucsb dhadkan exec board" />
       </div>
-      
-      <div class="leadership-title">quick facts</div>
+
       <div class="facts">
-        <span class="fact-chip">bollywood-fusion dance national competition</span>
-        <span class="fact-chip">organizing multiple cultural events through the year</span>
-        <span class="fact-chip">charity fundraising (all profits to a chosen charity)</span>
-        <span class="fact-chip">production & stage mgmt on the day of the show</span>
+        <span class="fact-chip">national-level Bollywood fusion competition</span>
+        <span class="fact-chip">501(c)(3) non-profit</span>
+        <span class="fact-chip">all profits to charity</span>
+        <span class="fact-chip">$30,000+ raised</span>
       </div>
-      
-      <div class="leadership-title">my role & contributions</div>
-      <ul class="contrib">
-        <li>serving as president; coordinating show operations across venue, team management, outreach, finance and more</li>
-        <li>driving sponsorships & campus partnerships; supported charity fundraising initiatives</li>
-        <li>led branding & ticketing efforts as previous outreach executive, collaborating on themed events and marketing assets</li>
-        <li>managed stage set-up, post-show concert set up and stage management for two years running</li>
+
+      <div class="sub-label">contributions</div>
+      <ul class="bullets">
+        <li>leading a team of <strong>40+ students</strong> to organize and host a national inter-collegiate Bollywood fusion dance competition</li>
+        <li>managing all club operations as president: outreach, internal affairs, finances, sponsorships, and campus partnerships</li>
+        <li>hosting cultural events and fundraisers throughout the year in addition to the main annual competition</li>
+        <li>raised <strong>upwards of $30,000 for charity</strong> over my time in the club</li>
+        <li>managed stage setup, tech, and production management for multiple years running</li>
       </ul>
     </article>
+
   </main>
 
-  <footer>© 2025 tanish mendki</footer>
+  <footer>
+    © 2026 tanish mendki · <a href="https://github.com/tmendki">tmendki</a>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+    );
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
