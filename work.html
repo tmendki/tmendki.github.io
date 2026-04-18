@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>work · tanish mendki</title>
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -61,19 +61,20 @@
             </div>
           </div>
         </div>
-        <div class="work-item-sub">independent research</div>
+        <div class="work-item-collab">collaborators: Sudhanshu Srivastava (UC San Diego), Ansh Soni (University of Pennsylvania)</div>
         <div class="tags">
           <span class="tag">PyTorch</span><span class="tag">NumPy</span>
           <span class="tag">fMRI</span><span class="tag">RSA</span><span class="tag">HMAX</span>
         </div>
         <p class="work-item-desc">
           Using representational similarity analysis to compare classical vision models (HMAX, Gabor pyramids)
-          against state-of-the-art deep networks, benchmarked against human fMRI data.
+          against state of the art deep networks, benchmarked against human fMRI data from early visual cortex.
+          The goal is to understand what structural properties of a model drive brain alignment, and whether
+          simplicity can beat scale.
         </p>
         <ul class="bullets">
-          <li>found that HMAX exhibits stronger alignment with early visual cortex (V1) than recent hyper-complex architectures</li>
-          <li>developed a cross-model RSA framework to quantify correspondence between model activations and voxel-level brain patterns</li>
-          <li>accepted as extended abstract at <strong>UniReps, NeurIPS 2025</strong>; accepted as contributed talk at <strong>VSS 2026</strong></li>
+          <li>found that HMAX exhibits stronger alignment with V1 than recent hyper-complex architectures</li>
+          <li>accepted as extended abstract at <strong>UniReps, NeurIPS 2025</strong> and contributed talk at <strong>VSS 2026</strong></li>
         </ul>
       </div>
 
@@ -88,18 +89,19 @@
             </div>
           </div>
         </div>
-        <div class="work-item-sub">Vision &amp; Image Understanding Lab, UCSB</div>
+        <div class="work-item-collab">collaborators: Miguel Eckstein (UC Santa Barbara)</div>
         <div class="tags">
           <span class="tag">PyTorch</span><span class="tag">NumPy</span>
           <span class="tag">scikit-learn</span><span class="tag">Python</span>
         </div>
         <p class="work-item-desc">
-          Synthetic image generation pipeline and model introspection framework to study how CNNs
-          handle visual search in structured environments. URCA grant-funded undergraduate research.
+          A synthetic image generation pipeline and model introspection framework studying how CNNs
+          handle visual search in structured environments. This URCA grant funded project asks whether
+          neural networks solve visual search the same way humans do, or whether they cheat by
+          relying on statistical regularities in backgrounds rather than the target itself.
         </p>
         <ul class="bullets">
-          <li>trained multiple CNN architectures to &gt;90% accuracy on generated datasets with varied background structure</li>
-          <li>discovered models rely on background context rather than target features — relevant to medical imaging reliability</li>
+          <li>trained multiple CNN architectures to &gt;90% accuracy; found models rely on background context rather than target features</li>
           <li>presented as poster and oral talk at UCSB URCA Week 2025</li>
         </ul>
         <div class="card-links">
@@ -115,19 +117,19 @@
             <span class="badge badge-active">active</span>
           </div>
         </div>
-        <div class="work-item-sub">Vision &amp; Image Understanding Lab, UCSB</div>
+        <div class="work-item-collab">collaborators: VIU Lab, UCSB</div>
         <div class="tags">
           <span class="tag">GPT-4</span><span class="tag">Gemini</span>
           <span class="tag">Human Studies</span><span class="tag">NLP</span>
         </div>
         <p class="work-item-desc">
-          Studying how humans and LLMs evaluate "fake expertise" in image captions —
-          whether AI systems can detect and be deceived by misleading descriptions.
+          Studying how humans and large language models evaluate fake expertise in image captions —
+          whether AI systems can detect and be deceived by misleading descriptions. We curated 360 images
+          with intentionally misleading descriptions across five knowledge domains, collected human
+          deceptiveness ratings, and compared them to GPT-4 and Gemini-2.5 judgments.
         </p>
         <ul class="bullets">
-          <li>curated 360 images with intentionally misleading descriptions across 5 knowledge domains</li>
-          <li>collected human deceptiveness ratings and compared to GPT-4 / Gemini-2.5 judgments</li>
-          <li>follow-up study underway on decision-making and trust formation under deceptive information</li>
+          <li>follow-up study underway on decision making and trust formation under deceptive information</li>
         </ul>
       </div>
 
@@ -143,24 +145,21 @@
 
       <div class="work-item">
         <div class="work-item-header">
-          <div class="work-item-title">StudyStack — Full-Stack AI Academic Platform</div>
+          <div class="work-item-title">StudyStack — Full Stack AI Academic Platform</div>
           <div class="work-item-right">
             <span class="work-item-date">january 2026</span>
           </div>
         </div>
-        <div class="work-item-sub">full-stack development</div>
         <div class="tags">
           <span class="tag">Next.js</span><span class="tag">TypeScript</span>
           <span class="tag">FastAPI</span><span class="tag">Supabase</span><span class="tag">Vercel</span>
         </div>
         <p class="work-item-desc">
-          AI-powered academic workspace integrating Canvas, Gradescope, and Piazza.
-          An agentic AI layer reasons over course context to interpret assignments and guide workflows.
+          An AI-powered academic workspace integrating Canvas, Gradescope, and Piazza into a single
+          interface. An agentic AI layer reasons over course context to interpret assignments, surface
+          deadlines, and guide study workflows. FastAPI backend with authenticated APIs and async task
+          orchestration; Next.js frontend deployed on Vercel with Supabase for auth and persistence.
         </p>
-        <ul class="bullets">
-          <li>FastAPI backend with authenticated APIs, async task orchestration, and secure third-party integrations</li>
-          <li>Next.js + TypeScript frontend; deployed on Vercel with Supabase for auth and persistence</li>
-        </ul>
       </div>
 
       <div class="work-item">
@@ -170,7 +169,6 @@
             <span class="work-item-date">may 2024</span>
           </div>
         </div>
-        <div class="work-item-sub">computational modeling</div>
         <div class="tags">
           <span class="tag">Python</span><span class="tag">TensorFlow</span>
           <span class="tag">Drift Diffusion Modeling</span><span class="tag">Bayesian</span>
@@ -178,10 +176,8 @@
         <p class="work-item-desc">
           Three frameworks modeling covert attention during dynamic gaze cueing: a Bayesian Ideal Observer,
           a 3D CNN, and a time-resolved Drift Diffusion Model calibrated against human psychophysics data.
+          Validated against 9 observers and 10,000 trials, replicating key RT speed-up and accuracy effects.
         </p>
-        <ul class="bullets">
-          <li>validated against 9 observers and 10,000 trials; replicated key RT speed-up and accuracy effects</li>
-        </ul>
         <div class="card-links">
           <a href="https://drive.google.com/file/d/12DgvM0ldJFHGUKlrqR-LN85lC4Nr1dlD/view?usp=sharing" target="_blank">view report ↗</a>
         </div>
@@ -194,14 +190,13 @@
             <span class="work-item-date">2023</span>
           </div>
         </div>
-        <div class="work-item-sub">mobile development</div>
         <div class="tags">
           <span class="tag">React Native</span><span class="tag">Python</span>
           <span class="tag">GCP NLP</span><span class="tag">BeautifulSoup</span>
         </div>
         <p class="work-item-desc">
-          React Native app with GCP NLP sentiment analysis and web scraping,
-          aggregating professor reviews to help students make informed course decisions.
+          React Native app with GCP NLP sentiment analysis and web scraping, aggregating professor
+          reviews to help students make informed course decisions.
         </p>
         <div class="card-links">
           <a href="https://devpost.com/software/classify-4uia06" target="_blank">view demo ↗</a>
@@ -215,13 +210,12 @@
             <span class="work-item-date">2023</span>
           </div>
         </div>
-        <div class="work-item-sub">machine learning</div>
         <div class="tags">
           <span class="tag">Keras</span><span class="tag">Python</span>
           <span class="tag">pandas</span><span class="tag">scikit-learn</span>
         </div>
         <p class="work-item-desc">
-          Predicts run / pass / punt / kickoff from ten seasons of play-by-play data
+          Predicts run, pass, punt, or kickoff from ten seasons of play by play data
           using a custom Keras model with extensive feature engineering.
         </p>
         <div class="card-links">

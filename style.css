@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
 
 /* ===== TOKENS ===== */
 :root {
@@ -12,9 +12,9 @@
   --accent-dim: rgba(124, 58, 237, 0.1);
   --accent-border: rgba(124, 58, 237, 0.28);
 
-  --text: #f2f2ff;
-  --text-muted: #c0c0dc;
-  --text-dim: #606080;
+  --text: #f5f5ff;
+  --text-muted: #cccae6;
+  --text-dim: #6a6888;
 
   --border: rgba(255, 255, 255, 0.07);
 
@@ -25,7 +25,7 @@
   --yellow-dim: rgba(251, 191, 36, 0.1);
   --yellow-border: rgba(251, 191, 36, 0.25);
 
-  --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font: 'Space Grotesk', system-ui, sans-serif;
   --font-mono: 'DM Mono', 'Courier New', monospace;
 
   --max-width: 860px;
@@ -167,7 +167,7 @@ main {
   align-items: center;
   gap: 0.65rem;
   margin: 3rem 0 0;
-  padding-bottom: 0.7rem;
+  padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--border);
 }
 
@@ -181,9 +181,9 @@ main {
 
 .section-header h2 {
   font-family: var(--font);
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--text);
   letter-spacing: 0;
 }
 
@@ -195,11 +195,14 @@ main {
 }
 
 .work-item {
-  padding: 2rem 0;
+  padding: 2rem 0 2rem 1.1rem;
   border-bottom: 1px solid var(--border);
+  border-left: 2px solid transparent;
+  margin-left: -1.1rem;
 }
 
 .work-item:last-child { border-bottom: none; }
+.work-item:hover { border-left-color: var(--accent); }
 
 .work-item-header {
   display: flex;
@@ -237,8 +240,15 @@ main {
 .work-item-sub {
   font-size: 0.9rem;
   color: var(--text-muted);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   line-height: 1.5;
+}
+
+.work-item-collab {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-light);
+  margin-bottom: 0.65rem;
 }
 
 .work-item-desc {
