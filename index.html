@@ -6,354 +6,203 @@
   <title>tanish mendki</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ===== CANVAS ===== */
-    .neural-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      pointer-events: none;
-    }
-
     /* ===== HERO ===== */
     .hero {
-      min-height: calc(92vh - var(--nav-height));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4rem 1.5rem;
-      position: relative;
-      text-align: center;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(124, 58, 237, 0.14) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      max-width: 680px;
-      position: relative;
-      z-index: 1;
-      animation: fadeInUp 0.8s ease both;
-    }
-
-    .hero-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--accent-light);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 1.25rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 5rem 2rem 3.5rem;
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 3.8rem);
-      font-weight: 700;
+      font-size: clamp(2.6rem, 6vw, 4rem);
+      font-weight: 300;
       color: var(--text);
       letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 1.25rem;
+      line-height: 1.05;
+      margin-bottom: 1rem;
     }
 
-    .hero h1 em {
-      font-style: normal;
-      color: var(--accent-light);
-    }
-
-    .hero-tagline {
+    .hero-role {
       font-family: var(--font-mono);
-      font-size: clamp(0.85rem, 2vw, 1rem);
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 2px;
-      height: 1em;
-      background: var(--accent-light);
-      margin-left: 3px;
-      animation: cursor-blink 1.2s step-end infinite;
-      vertical-align: text-bottom;
+      font-size: 0.82rem;
+      color: var(--accent-light);
+      margin-bottom: 1.4rem;
+      letter-spacing: 0.02em;
     }
 
     .hero-desc {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
-      line-height: 1.85;
-      margin-bottom: 2.25rem;
+      line-height: 1.8;
       max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-bottom: 2rem;
     }
 
-    .hero-desc strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .hero-actions {
+    .hero-links {
       display: flex;
-      gap: 0.85rem;
-      justify-content: center;
+      gap: 1.25rem;
       flex-wrap: wrap;
+      align-items: center;
     }
 
-    .btn-primary {
+    .hero-links a {
       font-size: 0.87rem;
-      font-weight: 500;
+      color: var(--text-muted);
       text-decoration: none;
-      color: white;
-      background: var(--accent);
-      padding: 0.65rem 1.4rem;
-      border-radius: var(--radius);
-      transition: all var(--transition);
-      border: 1px solid transparent;
     }
 
-    .btn-primary:hover {
-      background: #6d28d9;
-      box-shadow: 0 0 20px var(--accent-glow);
-      transform: translateY(-1px);
-    }
+    .hero-links a:hover { color: var(--text); }
 
-    .btn-secondary {
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      text-decoration: none;
+    .hero-links .primary {
       color: var(--accent-light);
       border: 1px solid var(--accent-border);
-      padding: 0.63rem 1.3rem;
+      padding: 0.3rem 0.75rem;
       border-radius: var(--radius);
-      transition: all var(--transition);
-    }
-
-    .btn-secondary:hover {
-      background: var(--accent-dim);
-      box-shadow: 0 0 14px var(--accent-glow);
-      transform: translateY(-1px);
-    }
-
-    .scroll-hint {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
       font-family: var(--font-mono);
-      font-size: 0.68rem;
+      font-size: 0.78rem;
+    }
+
+    .hero-links .primary:hover { background: var(--accent-dim); }
+
+    .hero-links .divider {
       color: var(--text-dim);
-      letter-spacing: 0.08em;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
-      animation: fadeInUp 1s ease 0.6s both;
+      pointer-events: none;
     }
 
-    .scroll-hint::after {
-      content: '';
-      width: 1px;
-      height: 30px;
-      background: linear-gradient(to bottom, var(--accent-border), transparent);
-    }
-
-    /* ===== HIGHLIGHTS ===== */
-    .highlights-section {
+    /* ===== CONTENT ===== */
+    .content {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 2rem;
     }
 
+    /* ===== HIGHLIGHTS GRID ===== */
     .highlights-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      gap: 0.75rem;
     }
 
     .highlight-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 1.4rem;
+      border-radius: var(--radius);
+      padding: 1.1rem 1.25rem;
       text-decoration: none;
       display: block;
-      transition: border-color var(--transition), transform var(--transition),
-                  box-shadow var(--transition), background var(--transition);
       position: relative;
-      overflow: hidden;
     }
 
-    .highlight-card:hover {
-      border-color: var(--accent-border);
-      background: var(--bg-card-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(124, 58, 237, 0.1);
-    }
-
-    .highlight-card.wide {
-      grid-column: span 2;
-    }
+    .highlight-card:hover { border-color: var(--accent-border); }
 
     .hl-label {
       font-family: var(--font-mono);
-      font-size: 0.68rem;
+      font-size: 0.67rem;
       color: var(--accent-light);
       text-transform: uppercase;
-      letter-spacing: 0.09em;
-      margin-bottom: 0.5rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
 
     .hl-title {
-      font-size: 0.98rem;
-      font-weight: 600;
+      font-size: 0.92rem;
+      font-weight: 500;
       color: var(--text);
-      margin-bottom: 0.35rem;
-      line-height: 1.4;
+      margin-bottom: 0.3rem;
+      line-height: 1.35;
     }
 
     .hl-desc {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
-      line-height: 1.65;
+      line-height: 1.6;
     }
 
     .hl-arrow {
       position: absolute;
-      bottom: 1.2rem;
-      right: 1.2rem;
-      font-family: var(--font-mono);
+      top: 1.1rem;
+      right: 1.1rem;
       font-size: 0.75rem;
-      color: var(--accent-border);
-      transition: color var(--transition);
+      color: var(--text-dim);
     }
 
-    .highlight-card:hover .hl-arrow {
-      color: var(--accent-light);
-    }
-
-    /* ===== ABOUT SECTION ===== */
-    .about-section {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
+    /* ===== ABOUT ===== */
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.25rem;
       align-items: start;
     }
 
-    .about-text {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-    }
-
     .about-text p {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--text-muted);
-      line-height: 1.85;
+      line-height: 1.82;
     }
 
-    .about-text p + p {
-      margin-top: 0.85rem;
-    }
-
-    .about-text strong {
-      color: var(--text);
-      font-weight: 500;
-    }
+    .about-text p + p { margin-top: 0.8rem; }
 
     .about-facts {
       display: grid;
-      gap: 0.6rem;
+      gap: 0.5rem;
     }
 
     .fact-row {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius);
-      padding: 0.85rem 1rem;
-      transition: border-color var(--transition);
+      padding: 0.75rem 0.9rem;
     }
 
-    .fact-row:hover {
-      border-color: var(--accent-border);
-    }
+    .fact-row:hover { border-color: var(--accent-border); }
 
     .fact-key {
       font-family: var(--font-mono);
-      font-size: 0.68rem;
+      font-size: 0.67rem;
       color: var(--accent-light);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.18rem;
     }
 
     .fact-val {
-      font-size: 0.87rem;
+      font-size: 0.84rem;
       color: var(--text-muted);
+      line-height: 1.55;
     }
 
-    .fact-val strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    /* ===== CONNECT SECTION ===== */
-    .connect-section {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .connect-grid {
+    /* ===== CONNECT ===== */
+    .connect-row {
       display: flex;
-      gap: 0.75rem;
+      gap: 0.6rem;
       flex-wrap: wrap;
     }
 
     .connect-link {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      font-size: 0.87rem;
+      gap: 0.45rem;
+      font-size: 0.84rem;
       text-decoration: none;
       color: var(--text-muted);
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      padding: 0.65rem 1.1rem;
+      padding: 0.5rem 0.9rem;
       border-radius: var(--radius);
-      transition: all var(--transition);
-      font-weight: 400;
     }
 
     .connect-link:hover {
       border-color: var(--accent-border);
       color: var(--text);
-      background: var(--bg-card-hover);
-      transform: translateY(-1px);
     }
 
     .connect-link svg {
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       fill: currentColor;
       flex-shrink: 0;
     }
@@ -363,39 +212,25 @@
       border-color: var(--accent-border);
     }
 
-    .connect-link.primary:hover {
-      background: var(--accent-dim);
-      box-shadow: 0 0 14px var(--accent-glow);
-    }
+    .connect-link.primary:hover { background: var(--accent-dim); }
 
-    /* ===== AWARDS ROW ===== */
+    /* ===== AWARDS ===== */
     .awards-row {
       display: flex;
-      gap: 0.6rem;
+      gap: 0.4rem;
       flex-wrap: wrap;
-      margin-top: 0.75rem;
+      margin-top: 0.9rem;
     }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      .highlights-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .highlight-card.wide {
-        grid-column: span 1;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
+      .hero { padding: 3rem 1rem 2.5rem; }
+      .content { padding: 0 1rem; }
+      .highlights-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Neural Network Background -->
-  <canvas class="neural-bg" id="neuralCanvas"></canvas>
 
   <!-- Header -->
   <header>
@@ -407,7 +242,7 @@
       <a href="personal.html">personal</a>
     </nav>
     <div class="nav-right">
-      <a href="TanishMendki_CV.pdf" download class="cv-btn">download cv ↓</a>
+      <a href="TanishMendki_CV.pdf" download class="cv-btn">cv ↓</a>
       <div class="social">
         <a href="https://open.spotify.com/user/tanish" target="_blank" aria-label="spotify">
           <svg viewBox="0 0 168 168"><path d="M84 0a84 84 0 100 168 84 84 0 000-168zm38.3 120.4c-1.4 2.4-4.4 3.1-6.8 1.7-18.7-11.5-42.2-14.1-70-7.6-2.7.6-5.4-1-6.1-3.7-.7-2.7 1-5.4 3.7-6.1 30.8-7 56.6-4.1 77.2 8.6 2.3 1.4 3 4.4 1.7 6.9zm9.7-20.4c-1.8 2.9-5.6 3.9-8.5 2.1-21.5-13.2-54.2-17-79.6-9.2-3.3 1-6.8-.9-7.8-4.2-1-3.3.9-6.8 4.2-7.8 30.3-9.2 66.7-5 91.5 10.4 2.9 1.8 3.9 5.6 2.1 8.7zm.8-22.4C107.9 64 67.4 62.7 41 70c-3.9 1.1-7.9-1.2-9-5.1-1.1-3.9 1.2-7.9 5.1-9C68.4 47 114.2 48.4 140.2 65.3c3.3 2.1 4.3 6.5 2.1 9.8z"/></svg>
@@ -424,149 +259,124 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-content">
-      <p class="hero-eyebrow">// uc santa barbara · graduating march 2026</p>
-      <h1>hi, i'm <em>tanish</em></h1>
-      <div class="hero-tagline">
-        <span>researcher · builder · data nerd</span><span class="cursor"></span>
-      </div>
-      <p class="hero-desc">
-        i study how <strong>humans and neural networks see the world</strong> —
-        blending cognitive neuroscience, deep learning, and data engineering
-        to build systems that think like us.
-      </p>
-      <div class="hero-actions">
-        <a href="work.html" class="btn-primary">view my work →</a>
-        <a href="TanishMendki_CV.pdf" download class="btn-secondary">download cv ↓</a>
-      </div>
+    <h1>tanish mendki</h1>
+    <p class="hero-role">researcher · computational neuroscience</p>
+    <p class="hero-desc">
+      i study how humans and neural networks see the world —
+      deep learning, cognitive science, data engineering.
+      uc santa barbara, b.s. ×2, graduated 2026.
+    </p>
+    <div class="hero-links">
+      <a href="mailto:tanishmendki@gmail.com">tanishmendki@gmail.com</a>
+      <span class="divider">/</span>
+      <a href="https://github.com/tmendki" target="_blank">github</a>
+      <span class="divider">/</span>
+      <a href="https://linkedin.com/in/tanishmendki" target="_blank">linkedin</a>
+      <span class="divider">/</span>
+      <a href="TanishMendki_CV.pdf" download class="primary">download cv ↓</a>
     </div>
-    <div class="scroll-hint">scroll</div>
   </section>
 
-  <!-- Highlights -->
-  <section class="highlights-section">
-    <div class="section-header fade-in-up">
+  <!-- Main content -->
+  <div class="content">
+
+    <!-- Highlights -->
+    <div class="section-header">
       <div class="section-node"></div>
       <h2>highlights</h2>
-      <div class="section-line"></div>
     </div>
 
     <div class="highlights-grid">
-      <a href="work.html" class="highlight-card fade-in-up">
+      <a href="work.html" class="highlight-card">
         <div class="hl-label">
           <span class="badge badge-active">active</span>
           research
         </div>
         <div class="hl-title">Comparing Neural Representations: Theory vs. Deep Networks</div>
-        <p class="hl-desc">
-          RSA framework comparing HMAX and DNNs against human fMRI data.
-          Accepted at UniReps (NeurIPS 2025) · Talk at VSS 2026.
-        </p>
-        <div class="hl-arrow">→</div>
+        <p class="hl-desc">RSA framework comparing HMAX and DNNs against human fMRI. Accepted at UniReps (NeurIPS 2025) · Talk at VSS 2026.</p>
+        <span class="hl-arrow">→</span>
       </a>
 
-      <a href="work.html" class="highlight-card fade-in-up">
+      <a href="work.html" class="highlight-card">
         <div class="hl-label">
           <span class="badge badge-active">active</span>
           research
         </div>
         <div class="hl-title">CNN Analysis of Background Distractors in Visual Search</div>
-        <p class="hl-desc">
-          URCA-funded project. Synthetic dataset pipeline + model introspection
-          — found CNNs rely on structured backgrounds to make decisions.
-        </p>
-        <div class="hl-arrow">→</div>
+        <p class="hl-desc">URCA-funded. Found CNNs rely on structured backgrounds to classify — implications for medical imaging reliability.</p>
+        <span class="hl-arrow">→</span>
       </a>
 
-      <a href="work.html" class="highlight-card fade-in-up">
+      <a href="work.html" class="highlight-card">
         <div class="hl-label">project</div>
-        <div class="hl-title">StudyStack — AI-Powered Academic Platform</div>
-        <p class="hl-desc">
-          Full-stack platform (Next.js + FastAPI + Supabase) integrating Canvas,
-          Gradescope & Piazza into one agentic AI workspace.
-        </p>
-        <div class="hl-arrow">→</div>
+        <div class="hl-title">StudyStack — AI Academic Platform</div>
+        <p class="hl-desc">Full-stack platform (Next.js + FastAPI + Supabase) integrating Canvas, Gradescope and Piazza with an agentic AI layer.</p>
+        <span class="hl-arrow">→</span>
       </a>
 
-      <a href="experience.html" class="highlight-card fade-in-up">
+      <a href="experience.html" class="highlight-card">
         <div class="hl-label">experience</div>
         <div class="hl-title">Software Engineering Intern · Docyt AI</div>
-        <p class="hl-desc">
-          Airflow pipelines, dbt ETL models, and Metabase dashboards for
-          financial data at a Mountain View AI startup. Jun–Dec 2024.
-        </p>
-        <div class="hl-arrow">→</div>
+        <p class="hl-desc">Airflow pipelines, dbt ETL, and Metabase dashboards for financial data at a Mountain View AI company. Jun–Dec 2024.</p>
+        <span class="hl-arrow">→</span>
       </a>
     </div>
-  </section>
 
-  <!-- About -->
-  <section class="about-section">
-    <div class="section-header fade-in-up">
+    <!-- About -->
+    <div class="section-header">
       <div class="section-node"></div>
       <h2>about</h2>
-      <div class="section-line"></div>
     </div>
 
     <div class="about-grid">
-      <div class="about-text fade-in-up">
+      <div class="about-text">
         <p>
-          i'm a <strong>fourth-year undergraduate</strong> at UC Santa Barbara
-          finishing a double major in <strong>Statistics & Data Science</strong> and
-          <strong>Psychological & Brain Sciences</strong>.
+          i graduated from uc santa barbara with degrees in statistics & data science
+          and psychological & brain sciences. my research sits at the intersection of
+          computational neuroscience and computer vision — i use deep learning to model
+          how humans process visual information, and compare artificial and biological
+          systems to understand what makes each unique.
         </p>
         <p>
-          my research lives at the intersection of <strong>computational neuroscience
-          and computer vision</strong> — i use deep learning to model how humans process
-          visual information, and compare artificial and biological systems to understand
-          what makes each unique.
+          outside of research: co-founder of gaucho sports analytics, president of
+          ucsb dhadkan (a bollywood fusion dance non-profit that's raised $30k+ for charity),
+          and a person who spends too much time in cafés.
         </p>
-        <p>
-          outside of research, i co-founded <strong>Gaucho Sports Analytics</strong>
-          (UCSB's first sports analytics club), president of <strong>UCSB Dhadkan</strong>,
-          and spend too much time in cafés.
-        </p>
-
-        <div class="awards-row" style="margin-top: 1.1rem;">
-          <span class="badge badge-award">2025 Duval Scholarship</span>
-          <span class="badge badge-workshop">2024 URCA Grant</span>
-          <span class="badge badge-workshop">L&S Honors College</span>
-          <span class="badge badge-workshop">Dean's List</span>
+        <div class="awards-row">
+          <span class="badge badge-award">2025 duval scholarship</span>
+          <span class="badge badge-workshop">2024 urca grant</span>
+          <span class="badge badge-workshop">l&s honors college</span>
+          <span class="badge badge-workshop">dean's list</span>
         </div>
       </div>
 
-      <div class="about-facts fade-in-up">
+      <div class="about-facts">
         <div class="fact-row">
           <div class="fact-key">education</div>
-          <div class="fact-val"><strong>B.S. Statistics & Data Science</strong> · GPA 3.85<br>
-          <strong>B.S. Psychological & Brain Sciences</strong> · GPA 3.96<br>
-          Overall GPA: <strong>3.90</strong></div>
+          <div class="fact-val">
+            B.S. Statistics & Data Science (3.85)<br>
+            B.S. Psychological & Brain Sciences (3.96)<br>
+            Overall GPA 3.90 · UC Santa Barbara
+          </div>
         </div>
         <div class="fact-row">
           <div class="fact-key">thesis</div>
           <div class="fact-val">"Learning to Avoid Background Distractors in Visual Search: Human Adaptation and Neural Network Performance"</div>
         </div>
         <div class="fact-row">
-          <div class="fact-key">core toolset</div>
-          <div class="fact-val">PyTorch · TensorFlow · NumPy · scikit-learn · Python · SQL · Next.js · React</div>
-        </div>
-        <div class="fact-row">
-          <div class="fact-key">currently</div>
-          <div class="fact-val">finishing thesis · preparing VSS 2026 talk · building things</div>
+          <div class="fact-key">toolset</div>
+          <div class="fact-val">PyTorch · TensorFlow · NumPy · scikit-learn · Python · SQL · Next.js</div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Connect -->
-  <section class="connect-section">
-    <div class="section-header fade-in-up">
+    <!-- Connect -->
+    <div class="section-header">
       <div class="section-node"></div>
       <h2>connect</h2>
-      <div class="section-line"></div>
     </div>
 
-    <div class="connect-grid fade-in-up">
+    <div class="connect-row">
       <a href="mailto:tanishmendki@gmail.com" class="connect-link primary">
         <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         tanishmendki@gmail.com
@@ -588,81 +398,12 @@
         download cv
       </a>
     </div>
-  </section>
+
+  </div>
 
   <footer>
     © 2026 tanish mendki · <a href="https://github.com/tmendki">tmendki</a>
   </footer>
 
-  <script>
-    // Refined neural network canvas
-    const canvas = document.getElementById('neuralCanvas');
-    const ctx = canvas.getContext('2d');
-    let animId;
-
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    const nodes = Array.from({ length: 55 }, () => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
-      vx: (Math.random() - 0.5) * 0.18,
-      vy: (Math.random() - 0.5) * 0.18,
-      r: Math.random() * 1.8 + 0.6,
-      op: Math.random() * 0.22 + 0.08,
-    }));
-
-    function draw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      nodes.forEach(n => {
-        n.x += n.vx;
-        n.y += n.vy;
-        if (n.x < 0 || n.x > canvas.width)  n.vx *= -1;
-        if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
-
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(167, 139, 250, ${n.op})`;
-        ctx.fill();
-      });
-
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const dx = nodes[i].x - nodes[j].x;
-          const dy = nodes[i].y - nodes[j].y;
-          const d = Math.sqrt(dx * dx + dy * dy);
-          if (d < 140) {
-            const op = (140 - d) / 140 * 0.07;
-            ctx.beginPath();
-            ctx.moveTo(nodes[i].x, nodes[i].y);
-            ctx.lineTo(nodes[j].x, nodes[j].y);
-            ctx.strokeStyle = `rgba(124, 58, 237, ${op})`;
-            ctx.lineWidth = 1;
-            ctx.stroke();
-          }
-        }
-      }
-
-      animId = requestAnimationFrame(draw);
-    }
-    draw();
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) cancelAnimationFrame(animId);
-      else draw();
-    });
-
-    // Scroll reveal
-    const observer = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
-    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>

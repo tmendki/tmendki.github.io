@@ -6,199 +6,89 @@
   <title>personal · tanish mendki</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ===== CURRENTLY GRID ===== */
+    /* ===== CURRENTLY ===== */
     .currently-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      gap: 0.75rem;
     }
 
     .currently-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 1.4rem;
-      transition: border-color var(--transition), background var(--transition);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.25rem;
     }
 
-    .currently-card:hover {
-      border-color: var(--accent-border);
-      background: var(--bg-card-hover);
-    }
+    .currently-card:hover { border-color: var(--accent-border); }
 
     .currently-header {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 1.1rem;
-    }
-
-    .currently-icon {
-      font-size: 1.1rem;
+      gap: 0.5rem;
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .currently-label {
       font-family: var(--font-mono);
-      font-size: 0.73rem;
+      font-size: 0.68rem;
       color: var(--accent-light);
       text-transform: uppercase;
       letter-spacing: 0.09em;
     }
 
     .media-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-      padding: 0.65rem 0;
+      padding: 0.5rem 0;
       border-bottom: 1px solid var(--border-subtle);
     }
 
-    .media-item:last-child {
-      border-bottom: none;
-    }
+    .media-item:last-child { border-bottom: none; }
 
     .media-title {
-      font-size: 0.9rem;
-      font-weight: 500;
+      font-size: 0.88rem;
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.35;
     }
 
     .media-sub {
       font-family: var(--font-mono);
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       color: var(--text-muted);
+      margin-top: 0.08rem;
     }
 
-    .media-status {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      padding: 0.1rem 0.45rem;
-      border-radius: 3px;
-      margin-top: 0.15rem;
-      width: fit-content;
+    .media-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 0.08rem;
     }
 
-    .status-watching {
-      background: rgba(59, 130, 246, 0.1);
-      color: #93c5fd;
-      border: 1px solid rgba(59, 130, 246, 0.2);
-    }
-
-    .status-reading {
-      background: var(--green-dim);
-      color: var(--green);
-      border: 1px solid var(--green-border);
-    }
-
-    .status-finished {
-      background: var(--accent-dim);
-      color: var(--accent-xlight);
-      border: 1px solid var(--accent-border);
-    }
-
-    /* ===== INTERESTS GRID ===== */
-    .interests-grid {
+    /* ===== PHOTO GRID ===== */
+    .photo-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.6rem;
     }
 
-    .interest-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 1.4rem;
-      transition: border-color var(--transition);
+    .photo-grid img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: var(--radius);
+      display: block;
+      filter: saturate(0.85);
     }
 
-    .interest-card:hover {
-      border-color: var(--accent-border);
-    }
-
-    .interest-title {
-      font-family: var(--font-mono);
-      font-size: 0.73rem;
-      color: var(--accent-light);
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      margin-bottom: 0.75rem;
-    }
-
-    .interest-text {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.75;
-    }
-
-    .interest-text strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    /* ===== SPOTIFY CARD ===== */
-    .spotify-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 1.4rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      text-decoration: none;
-      transition: all var(--transition);
-      margin-top: 1rem;
-    }
-
-    .spotify-card:hover {
-      border-color: rgba(29, 185, 84, 0.35);
-      background: var(--bg-card-hover);
-      transform: translateY(-1px);
-    }
-
-    .spotify-icon {
-      width: 40px;
-      height: 40px;
-      fill: #1db954;
-      flex-shrink: 0;
-    }
-
-    .spotify-text .label {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.15rem;
-    }
-
-    .spotify-text .name {
-      font-size: 0.92rem;
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    .spotify-arrow {
-      margin-left: auto;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      transition: color var(--transition);
-    }
-
-    .spotify-card:hover .spotify-arrow {
-      color: #1db954;
+    .photo-grid img:hover {
+      filter: saturate(1);
     }
 
     @media (max-width: 768px) {
-      .currently-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .interests-grid {
-        grid-template-columns: 1fr;
-      }
+      .currently-grid { grid-template-columns: 1fr; }
+      .photo-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -214,7 +104,7 @@
       <a href="personal.html" class="active">personal</a>
     </nav>
     <div class="nav-right">
-      <a href="TanishMendki_CV.pdf" download class="cv-btn">download cv ↓</a>
+      <a href="TanishMendki_CV.pdf" download class="cv-btn">cv ↓</a>
       <div class="social">
         <a href="https://open.spotify.com/user/tanish" target="_blank" aria-label="spotify">
           <svg viewBox="0 0 168 168"><path d="M84 0a84 84 0 100 168 84 84 0 000-168zm38.3 120.4c-1.4 2.4-4.4 3.1-6.8 1.7-18.7-11.5-42.2-14.1-70-7.6-2.7.6-5.4-1-6.1-3.7-.7-2.7 1-5.4 3.7-6.1 30.8-7 56.6-4.1 77.2 8.6 2.3 1.4 3 4.4 1.7 6.9zm9.7-20.4c-1.8 2.9-5.6 3.9-8.5 2.1-21.5-13.2-54.2-17-79.6-9.2-3.3 1-6.8-.9-7.8-4.2-1-3.3.9-6.8 4.2-7.8 30.3-9.2 66.7-5 91.5 10.4 2.9 1.8 3.9 5.6 2.1 8.7zm.8-22.4C107.9 64 67.4 62.7 41 70c-3.9 1.1-7.9-1.2-9-5.1-1.1-3.9 1.2-7.9 5.1-9C68.4 47 114.2 48.4 140.2 65.3c3.3 2.1 4.3 6.5 2.1 9.8z"/></svg>
@@ -233,149 +123,99 @@
     <div class="page-header">
       <span class="page-label">// beyond the cv</span>
       <h1>personal</h1>
-      <p>
-        the stuff that doesn't go on a resume — what i'm watching, reading,
-        and thinking about when i'm not in the lab or building things.
-      </p>
+      <p>what i'm watching, reading, and listening to.</p>
     </div>
 
     <!-- Currently -->
-    <div class="section-header fade-in-up">
+    <div class="section-header">
       <div class="section-node"></div>
       <h2>currently</h2>
-      <div class="section-line"></div>
     </div>
 
     <div class="currently-grid">
 
       <!-- Watching -->
-      <div class="currently-card fade-in-up">
+      <div class="currently-card">
         <div class="currently-header">
-          <span class="currently-icon">📺</span>
           <span class="currently-label">watching</span>
         </div>
 
         <div class="media-item">
-          <div class="media-title">Severance</div>
-          <div class="media-sub">Apple TV+ · Season 2</div>
-          <span class="media-status status-watching">watching</span>
-        </div>
-
-        <div class="media-item">
-          <div class="media-title">The Bear</div>
-          <div class="media-sub">FX · Season 3</div>
-          <span class="media-status status-watching">watching</span>
-        </div>
-
-        <div class="media-item">
-          <div class="media-title">Succession</div>
+          <div class="media-title">Game of Thrones</div>
           <div class="media-sub">HBO</div>
-          <span class="media-status status-finished">finished</span>
+        </div>
+        <div class="media-item">
+          <div class="media-title">The Boys</div>
+          <div class="media-sub">Prime Video</div>
+        </div>
+        <div class="media-item">
+          <div class="media-title">Invincible</div>
+          <div class="media-sub">Prime Video</div>
+        </div>
+        <div class="media-item">
+          <div class="media-title">House of the Dragon</div>
+          <div class="media-sub">HBO</div>
         </div>
       </div>
 
       <!-- Reading -->
-      <div class="currently-card fade-in-up">
+      <div class="currently-card">
         <div class="currently-header">
-          <span class="currently-icon">📚</span>
           <span class="currently-label">reading</span>
         </div>
 
         <div class="media-item">
-          <div class="media-title">The Pragmatic Programmer</div>
-          <div class="media-sub">Hunt &amp; Thomas</div>
-          <span class="media-status status-reading">reading</span>
+          <div class="media-title">The Lord of the Rings trilogy</div>
+          <div class="media-sub">J.R.R. Tolkien</div>
         </div>
-
         <div class="media-item">
-          <div class="media-title">Thinking, Fast and Slow</div>
-          <div class="media-sub">Daniel Kahneman</div>
-          <span class="media-status status-reading">reading</span>
+          <div class="media-title">Harry Potter and the Half-Blood Prince</div>
+          <div class="media-sub">J.K. Rowling</div>
+          <div class="media-note">164th re-read. yes, really.</div>
         </div>
-
         <div class="media-item">
-          <div class="media-title">The Brain That Changes Itself</div>
-          <div class="media-sub">Norman Doidge</div>
-          <span class="media-status status-finished">finished</span>
+          <div class="media-title">A Game of Thrones</div>
+          <div class="media-sub">George R.R. Martin</div>
+          <div class="media-note">starting soon</div>
         </div>
       </div>
 
       <!-- Listening -->
-      <div class="currently-card fade-in-up">
+      <div class="currently-card">
         <div class="currently-header">
-          <span class="currently-icon">🎵</span>
           <span class="currently-label">listening</span>
         </div>
 
         <div class="media-item">
-          <div class="media-title">Add your current artists here</div>
-          <div class="media-sub">Update this with your favorites</div>
+          <div class="media-title">The Weeknd</div>
+          <div class="media-sub">constant rotation</div>
         </div>
-
         <div class="media-item">
-          <div class="media-title">Add another artist</div>
-          <div class="media-sub">Album or vibe</div>
+          <div class="media-title">Travis Scott</div>
+          <div class="media-sub">constant rotation</div>
         </div>
-
-        <a href="https://open.spotify.com/user/tanish" target="_blank" class="spotify-card" style="margin-top:0.75rem;padding:0.75rem 1rem;">
-          <svg class="spotify-icon" style="width:28px;height:28px;" viewBox="0 0 168 168"><path d="M84 0a84 84 0 100 168 84 84 0 000-168zm38.3 120.4c-1.4 2.4-4.4 3.1-6.8 1.7-18.7-11.5-42.2-14.1-70-7.6-2.7.6-5.4-1-6.1-3.7-.7-2.7 1-5.4 3.7-6.1 30.8-7 56.6-4.1 77.2 8.6 2.3 1.4 3 4.4 1.7 6.9zm9.7-20.4c-1.8 2.9-5.6 3.9-8.5 2.1-21.5-13.2-54.2-17-79.6-9.2-3.3 1-6.8-.9-7.8-4.2-1-3.3.9-6.8 4.2-7.8 30.3-9.2 66.7-5 91.5 10.4 2.9 1.8 3.9 5.6 2.1 8.7zm.8-22.4C107.9 64 67.4 62.7 41 70c-3.9 1.1-7.9-1.2-9-5.1-1.1-3.9 1.2-7.9 5.1-9C68.4 47 114.2 48.4 140.2 65.3c3.3 2.1 4.3 6.5 2.1 9.8z"/></svg>
-          <div class="spotify-text">
-            <div class="label">spotify profile</div>
-            <div class="name">tanish</div>
-          </div>
-          <span class="spotify-arrow">↗</span>
-        </a>
+        <div class="media-item">
+          <div class="media-title">Brent Faiyaz</div>
+          <div class="media-sub">slowly creeping up the charts</div>
+        </div>
+        <div class="media-item" style="padding-top:0.6rem;">
+          <a href="https://open.spotify.com/user/tanish" target="_blank" style="font-family:var(--font-mono);font-size:0.72rem;color:var(--accent-light);text-decoration:none;">spotify profile ↗</a>
+        </div>
       </div>
 
     </div>
 
-    <!-- Interests -->
-    <div class="section-header fade-in-up">
+    <!-- Photos -->
+    <div class="section-header">
       <div class="section-node"></div>
-      <h2>interests &amp; beyond</h2>
-      <div class="section-line"></div>
+      <h2>photos</h2>
     </div>
 
-    <div class="interests-grid">
-      <div class="interest-card fade-in-up">
-        <div class="interest-title">// the research side of me</div>
-        <p class="interest-text">
-          i'm genuinely fascinated by the question of <strong>how intelligent systems — biological or artificial — learn to see</strong>.
-          the fact that humans can effortlessly recognize objects in cluttered scenes, while even the best neural networks
-          can fail in systematic ways, feels like one of the most interesting open problems in science.
-          most of my time goes here.
-        </p>
-      </div>
-
-      <div class="interest-card fade-in-up">
-        <div class="interest-title">// sports &amp; analytics</div>
-        <p class="interest-text">
-          i co-founded <strong>Gaucho Sports Analytics</strong> because i believe sports is one of the most
-          accessible entry points for learning data science. i love the intersection of
-          <strong>statistics and competition</strong> — there's something satisfying about finding signal in
-          something as chaotic as a basketball game.
-        </p>
-      </div>
-
-      <div class="interest-card fade-in-up">
-        <div class="interest-title">// dance &amp; culture</div>
-        <p class="interest-text">
-          as president of <strong>UCSB Dhadkan</strong>, i spend a surprising amount of time thinking about
-          event production, fundraising, and team management. running a <strong>501(c)(3) non-profit</strong>
-          while taking a full course load has taught me more about leadership than anything else.
-          it's also just a lot of fun.
-        </p>
-      </div>
-
-      <div class="interest-card fade-in-up">
-        <div class="interest-title">// day to day</div>
-        <p class="interest-text">
-          you'll find me in a café with my laptop more often than not.
-          i'm a <strong>coffee person</strong>, a firm believer that the best thinking happens
-          in the middle of a long walk, and permanently interested in the question of
-          how minds — human and machine — actually work.
-        </p>
-      </div>
+    <div class="photo-grid">
+      <img src="images/1.png" alt="photo" />
+      <img src="images/2.png" alt="photo" />
+      <img src="images/3.png" alt="photo" />
+      <img src="images/4.png" alt="photo" />
     </div>
 
   </main>
@@ -384,12 +224,5 @@
     © 2026 tanish mendki · <a href="https://github.com/tmendki">tmendki</a>
   </footer>
 
-  <script>
-    const observer = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-      { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
-    );
-    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>
