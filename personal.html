@@ -15,7 +15,7 @@
 
     .currently-card {
       background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 1.1rem 1.25rem;
     }
@@ -28,20 +28,18 @@
       gap: 0.5rem;
       margin-bottom: 0.9rem;
       padding-bottom: 0.6rem;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border);
     }
 
     .currently-label {
       font-family: var(--font-mono);
       font-size: 0.68rem;
       color: var(--accent-light);
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
     }
 
     .media-item {
       padding: 0.5rem 0;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border);
     }
 
     .media-item:last-child { border-bottom: none; }
@@ -73,17 +71,40 @@
       gap: 0.6rem;
     }
 
-    .photo-grid img {
+    .photo-item {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .photo-item img {
       width: 100%;
       aspect-ratio: 4 / 3;
       object-fit: cover;
-      border-radius: var(--radius);
       display: block;
       filter: saturate(0.85);
     }
 
-    .photo-grid img:hover {
+    .photo-item:hover img {
       filter: saturate(1);
+    }
+
+    .photo-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.5rem 0.75rem;
+      background: rgba(9, 9, 15, 0.82);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      opacity: 0;
+      transition: opacity 0.18s ease;
+    }
+
+    .photo-item:hover .photo-caption {
+      opacity: 1;
     }
 
     @media (max-width: 768px) {
@@ -97,27 +118,27 @@
   <!-- Header -->
   <header>
     <div class="header-inner">
-    <a href="index.html" class="brand"><span class="bracket">[</span>tm<span class="bracket">]</span></a>
-    <nav>
-      <a href="index.html">home</a>
-      <a href="work.html">work</a>
-      <a href="experience.html">experience</a>
-      <a href="personal.html" class="active">personal</a>
-    </nav>
-    <div class="nav-right">
-      <a href="TanishMendki_CV.pdf" download class="cv-btn">cv ↓</a>
-      <div class="social">
-        <a href="https://open.spotify.com/user/tanish" target="_blank" aria-label="spotify">
-          <svg viewBox="0 0 168 168"><path d="M84 0a84 84 0 100 168 84 84 0 000-168zm38.3 120.4c-1.4 2.4-4.4 3.1-6.8 1.7-18.7-11.5-42.2-14.1-70-7.6-2.7.6-5.4-1-6.1-3.7-.7-2.7 1-5.4 3.7-6.1 30.8-7 56.6-4.1 77.2 8.6 2.3 1.4 3 4.4 1.7 6.9zm9.7-20.4c-1.8 2.9-5.6 3.9-8.5 2.1-21.5-13.2-54.2-17-79.6-9.2-3.3 1-6.8-.9-7.8-4.2-1-3.3.9-6.8 4.2-7.8 30.3-9.2 66.7-5 91.5 10.4 2.9 1.8 3.9 5.6 2.1 8.7zm.8-22.4C107.9 64 67.4 62.7 41 70c-3.9 1.1-7.9-1.2-9-5.1-1.1-3.9 1.2-7.9 5.1-9C68.4 47 114.2 48.4 140.2 65.3c3.3 2.1 4.3 6.5 2.1 9.8z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/tanishmendki" target="_blank" aria-label="linkedin">
-          <svg viewBox="0 0 448 512"><path d="M100.3 448H7V148.9h93.3V448zM53.7 108.1C24.1 108.1 0 83.5 0 53.9 0 24.3 24.6 0 54.4 0s54.4 24.3 54.4 53.9c-.1 29.6-24.5 54.2-55.1 54.2zM447.9 448h-93V302.4c0-34.7-.7-79.2-48.1-79.2-48.2 0-55.6 37.7-55.6 76.6V448h-93.1V148.9h89.5v40.8h1.3c12.5-23.7 43-48.7 88.5-48.7 94.7 0 112.1 62.4 112.1 143.3V448z"/></svg>
-        </a>
-        <a href="https://github.com/tmendki" target="_blank" aria-label="github">
-          <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-        </a>
+      <a href="index.html" class="brand"><span class="bracket">[</span>tm<span class="bracket">]</span></a>
+      <nav>
+        <a href="index.html">home</a>
+        <a href="work.html">work</a>
+        <a href="experience.html">experience</a>
+        <a href="personal.html" class="active">personal</a>
+      </nav>
+      <div class="nav-right">
+        <a href="TanishMendki_CV.pdf" download class="cv-btn">cv ↓</a>
+        <div class="social">
+          <a href="https://open.spotify.com/user/tanish" target="_blank" aria-label="spotify">
+            <svg viewBox="0 0 168 168"><path d="M84 0a84 84 0 100 168 84 84 0 000-168zm38.3 120.4c-1.4 2.4-4.4 3.1-6.8 1.7-18.7-11.5-42.2-14.1-70-7.6-2.7.6-5.4-1-6.1-3.7-.7-2.7 1-5.4 3.7-6.1 30.8-7 56.6-4.1 77.2 8.6 2.3 1.4 3 4.4 1.7 6.9zm9.7-20.4c-1.8 2.9-5.6 3.9-8.5 2.1-21.5-13.2-54.2-17-79.6-9.2-3.3 1-6.8-.9-7.8-4.2-1-3.3.9-6.8 4.2-7.8 30.3-9.2 66.7-5 91.5 10.4 2.9 1.8 3.9 5.6 2.1 8.7zm.8-22.4C107.9 64 67.4 62.7 41 70c-3.9 1.1-7.9-1.2-9-5.1-1.1-3.9 1.2-7.9 5.1-9C68.4 47 114.2 48.4 140.2 65.3c3.3 2.1 4.3 6.5 2.1 9.8z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/tanishmendki" target="_blank" aria-label="linkedin">
+            <svg viewBox="0 0 448 512"><path d="M100.3 448H7V148.9h93.3V448zM53.7 108.1C24.1 108.1 0 83.5 0 53.9 0 24.3 24.6 0 54.4 0s54.4 24.3 54.4 53.9c-.1 29.6-24.5 54.2-55.1 54.2zM447.9 448h-93V302.4c0-34.7-.7-79.2-48.1-79.2-48.2 0-55.6 37.7-55.6 76.6V448h-93.1V148.9h89.5v40.8h1.3c12.5-23.7 43-48.7 88.5-48.7 94.7 0 112.1 62.4 112.1 143.3V448z"/></svg>
+          </a>
+          <a href="https://github.com/tmendki" target="_blank" aria-label="github">
+            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </div>
       </div>
-    </div>
     </div>
   </header>
 
@@ -207,17 +228,29 @@
 
     </div>
 
-    <!-- Photos -->
+    <!-- Recent Life Updates -->
     <div class="section-header">
       <div class="section-node"></div>
-      <h2>photos</h2>
+      <h2>recent life updates</h2>
     </div>
 
     <div class="photo-grid">
-      <img src="images/1.png" alt="photo" />
-      <img src="images/2.png" alt="photo" />
-      <img src="images/3.png" alt="photo" />
-      <img src="images/4.png" alt="photo" />
+      <div class="photo-item">
+        <img src="images/1.png" alt="photo" />
+        <div class="photo-caption">beach day when the beaches were supposedly closed</div>
+      </div>
+      <div class="photo-item">
+        <img src="images/2.png" alt="photo" />
+        <div class="photo-caption">sf type vibe</div>
+      </div>
+      <div class="photo-item">
+        <img src="images/3.png" alt="photo" />
+        <div class="photo-caption">performative goals</div>
+      </div>
+      <div class="photo-item">
+        <img src="images/4.png" alt="photo" />
+        <div class="photo-caption">what a great parting gift</div>
+      </div>
     </div>
 
   </main>

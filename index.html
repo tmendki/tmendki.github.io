@@ -29,23 +29,28 @@
       color: var(--text);
       letter-spacing: -0.04em;
       line-height: 1.0;
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.75rem;
     }
 
-    .hero-role {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--accent-light);
-      margin-bottom: 1.4rem;
-      letter-spacing: 0.01em;
+    .hero-caption {
+      margin-bottom: 1.6rem;
     }
 
-    .hero-desc {
-      font-size: 1rem;
+    .hero-caption-line {
+      display: block;
+      font-size: 0.96rem;
       color: var(--text-muted);
-      line-height: 1.85;
-      max-width: 500px;
-      margin-bottom: 2rem;
+      line-height: 1.75;
+    }
+
+    .hero-caption-line:first-child {
+      font-style: italic;
+    }
+
+    .hero-caption-line.mono {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-dim);
     }
 
     .hero-links {
@@ -114,8 +119,6 @@
       font-family: var(--font-mono);
       font-size: 0.67rem;
       color: var(--accent-light);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
       margin-bottom: 0.2rem;
     }
 
@@ -124,45 +127,6 @@
       color: var(--text-muted);
       line-height: 1.6;
     }
-
-    /* ===== CONNECT ===== */
-    .connect-row {
-      display: flex;
-      gap: 0.55rem;
-      flex-wrap: wrap;
-    }
-
-    .connect-link {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-size: 0.88rem;
-      text-decoration: none;
-      color: var(--text-muted);
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      padding: 0.52rem 0.95rem;
-      border-radius: var(--radius);
-    }
-
-    .connect-link:hover {
-      border-color: var(--accent-border);
-      color: var(--text);
-    }
-
-    .connect-link svg {
-      width: 14px;
-      height: 14px;
-      fill: currentColor;
-      flex-shrink: 0;
-    }
-
-    .connect-link.primary {
-      color: var(--accent-light);
-      border-color: var(--accent-border);
-    }
-
-    .connect-link.primary:hover { background: var(--accent-dim); }
 
     /* ===== DIVIDER ===== */
     .hero-divider {
@@ -211,12 +175,11 @@
   <section class="hero">
     <img src="tanish.png" alt="tanish mendki" class="hero-photo" />
     <h1>tanish mendki</h1>
-    <p class="hero-role">researcher · computational neuroscience</p>
-    <p class="hero-desc">
-      i study how humans and neural networks see the world —
-      deep learning, cognitive science, data engineering.
-      uc santa barbara, b.s. ×2, graduated 2026.
-    </p>
+    <div class="hero-caption">
+      <span class="hero-caption-line">how do humans and models see the world?</span>
+      <span class="hero-caption-line mono">ucsb, bs x2</span>
+      <span class="hero-caption-line mono">graduated march 2026</span>
+    </div>
     <div class="hero-links">
       <a href="mailto:tanishmendki@gmail.com">tanishmendki@gmail.com</a>
       <span class="divider">/</span>
@@ -241,16 +204,16 @@
     <div class="about-grid">
       <div class="about-text">
         <p>
-          i graduated from uc santa barbara with degrees in statistics & data science
-          and psychological & brain sciences. my research sits at the intersection of
+          i graduated from uc santa barbara with degrees in statistics and data science
+          and psychological and brain sciences. my research sits at the intersection of
           computational neuroscience and computer vision — i use deep learning to model
           how humans process visual information, and compare artificial and biological
           systems to understand what makes each unique.
         </p>
         <p>
           outside of research: co-founder of gaucho sports analytics, president of
-          ucsb dhadkan (a bollywood fusion dance non-profit that's raised $30k+ for charity),
-          and a person who spends way too much time in cafés.
+          ucsb dhadkan (a bollywood fusion dance non-profit that has raised $30k+ for charity),
+          and a person who spends way too much time in cafes.
         </p>
         <div class="about-awards">
           <span class="badge badge-award">2025 duval scholarship</span>
@@ -264,8 +227,8 @@
         <div class="fact-row">
           <div class="fact-key">education</div>
           <div class="fact-val">
-            B.S. Statistics & Data Science · 3.85<br>
-            B.S. Psychological & Brain Sciences · 3.96<br>
+            B.S. Statistics &amp; Data Science · 3.85<br>
+            B.S. Psychological &amp; Brain Sciences · 3.96<br>
             Overall GPA 3.90
           </div>
         </div>
@@ -281,35 +244,6 @@
           <div class="fact-val">PyTorch · TensorFlow · NumPy · scikit-learn · SQL · Next.js</div>
         </div>
       </div>
-    </div>
-
-    <!-- Connect -->
-    <div class="section-header">
-      <div class="section-node"></div>
-      <h2>connect</h2>
-    </div>
-
-    <div class="connect-row">
-      <a href="mailto:tanishmendki@gmail.com" class="connect-link primary">
-        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        tanishmendki@gmail.com
-      </a>
-      <a href="https://github.com/tmendki" target="_blank" class="connect-link">
-        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-        github
-      </a>
-      <a href="https://www.linkedin.com/in/tanishmendki" target="_blank" class="connect-link">
-        <svg viewBox="0 0 448 512"><path d="M100.3 448H7V148.9h93.3V448zM53.7 108.1C24.1 108.1 0 83.5 0 53.9 0 24.3 24.6 0 54.4 0s54.4 24.3 54.4 53.9c-.1 29.6-24.5 54.2-55.1 54.2zM447.9 448h-93V302.4c0-34.7-.7-79.2-48.1-79.2-48.2 0-55.6 37.7-55.6 76.6V448h-93.1V148.9h89.5v40.8h1.3c12.5-23.7 43-48.7 88.5-48.7 94.7 0 112.1 62.4 112.1 143.3V448z"/></svg>
-        linkedin
-      </a>
-      <a href="https://open.spotify.com/user/tanish" target="_blank" class="connect-link">
-        <svg viewBox="0 0 168 168"><path d="M84 0a84 84 0 100 168 84 84 0 000-168zm38.3 120.4c-1.4 2.4-4.4 3.1-6.8 1.7-18.7-11.5-42.2-14.1-70-7.6-2.7.6-5.4-1-6.1-3.7-.7-2.7 1-5.4 3.7-6.1 30.8-7 56.6-4.1 77.2 8.6 2.3 1.4 3 4.4 1.7 6.9zm9.7-20.4c-1.8 2.9-5.6 3.9-8.5 2.1-21.5-13.2-54.2-17-79.6-9.2-3.3 1-6.8-.9-7.8-4.2-1-3.3.9-6.8 4.2-7.8 30.3-9.2 66.7-5 91.5 10.4 2.9 1.8 3.9 5.6 2.1 8.7zm.8-22.4C107.9 64 67.4 62.7 41 70c-3.9 1.1-7.9-1.2-9-5.1-1.1-3.9 1.2-7.9 5.1-9C68.4 47 114.2 48.4 140.2 65.3c3.3 2.1 4.3 6.5 2.1 9.8z"/></svg>
-        spotify
-      </a>
-      <a href="TanishMendki_CV.pdf" download class="connect-link primary">
-        <svg viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg>
-        download cv
-      </a>
     </div>
 
   </main>
