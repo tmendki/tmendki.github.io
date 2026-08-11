@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script>if (localStorage.getItem('theme') === 'light') document.documentElement.setAttribute('data-theme','light');</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>experience · tanish mendki</title>
@@ -19,6 +20,10 @@
       </nav>
       <div class="nav-right">
         <a href="TanishMendki_CV.pdf" download class="cv-btn">cv ↓</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
         <div class="social">
           <a href="https://open.spotify.com/user/tanish" target="_blank" aria-label="spotify">
             <svg viewBox="0 0 168 168"><path d="M84 0a84 84 0 100 168 84 84 0 000-168zm38.3 120.4c-1.4 2.4-4.4 3.1-6.8 1.7-18.7-11.5-42.2-14.1-70-7.6-2.7.6-5.4-1-6.1-3.7-.7-2.7 1-5.4 3.7-6.1 30.8-7 56.6-4.1 77.2 8.6 2.3 1.4 3 4.4 1.7 6.9zm9.7-20.4c-1.8 2.9-5.6 3.9-8.5 2.1-21.5-13.2-54.2-17-79.6-9.2-3.3 1-6.8-.9-7.8-4.2-1-3.3.9-6.8 4.2-7.8 30.3-9.2 66.7-5 91.5 10.4 2.9 1.8 3.9 5.6 2.1 8.7zm.8-22.4C107.9 64 67.4 62.7 41 70c-3.9 1.1-7.9-1.2-9-5.1-1.1-3.9 1.2-7.9 5.1-9C68.4 47 114.2 48.4 140.2 65.3c3.3 2.1 4.3 6.5 2.1 9.8z"/></svg>
@@ -82,10 +87,34 @@
     <div class="item-list">
       <div class="work-item">
         <div class="work-item-header">
+          <div class="work-item-title">Post-Baccalaureate Researcher · Visual Inference Lab</div>
+          <div class="work-item-right">
+            <span class="work-item-date">august 2026 – present</span>
+            <span class="badge badge-active">active</span>
+          </div>
+        </div>
+        <div class="work-item-collab">PI: Nikolaus Kriegeskorte · Zuckerman Institute, Columbia University</div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">PyTorch</span>
+          <span class="tag">RSA</span><span class="tag">Representational Geometry</span>
+        </div>
+        <p class="work-item-desc">
+          Computational neuroscience research on how to evaluate the tools we use to compare
+          brains and models. I'm studying representational similarity measures themselves —
+          how flexible or brittle they are to changes in representational geometry, and what
+          that means for their trustworthiness as a comparison metric.
+        </p>
+        <ul class="bullets">
+          <li>benchmarking representational similarity measures for sensitivity and invariance across synthetic and real representational geometries</li>
+          <li>building diagnostic test cases that reveal when standard measures conflate distinct representational structures</li>
+        </ul>
+      </div>
+
+      <div class="work-item">
+        <div class="work-item-header">
           <div class="work-item-title">Undergraduate Researcher &amp; Lab Manager · Vision &amp; Image Understanding Lab</div>
           <div class="work-item-right">
-            <span class="work-item-date">september 2023 – present</span>
-            <span class="badge badge-active">active</span>
+            <span class="work-item-date">september 2023 – march 2026</span>
           </div>
         </div>
         <div class="work-item-collab">PI: Miguel P. Eckstein · UC Santa Barbara</div>
@@ -95,13 +124,13 @@
         </div>
         <p class="work-item-desc">
           Computational neuroscience research using deep learning to model human visual perception,
-          alongside managing the lab's operations and teaching program. I lead two independent
-          research tracks, mentor the lab's research assistants, and run a weekly coding curriculum
+          alongside managing the lab's operations and teaching program. I led two independent
+          research tracks, mentored the lab's research assistants, and ran a weekly coding curriculum
           in computational neuroscience methods.
         </p>
         <ul class="bullets">
           <li>led the URCA-funded CNN visual search study and the NeurIPS 2025 neural representations paper</li>
-          <li>lead and mentor 60+ research assistants; deliver weekly coding lectures in comp-neuro methods</li>
+          <li>led and mentored 60+ research assistants; delivered weekly coding lectures in comp-neuro methods</li>
           <li>streamlined workflows, centralized communication, built equipment checkout portal</li>
         </ul>
       </div>
@@ -181,5 +210,6 @@
     © 2026 tanish mendki · <a href="https://github.com/tmendki">tmendki</a>
   </footer>
 
+  <script src="theme.js" defer></script>
 </body>
 </html>

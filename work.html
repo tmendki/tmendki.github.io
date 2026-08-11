@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script>if (localStorage.getItem('theme') === 'light') document.documentElement.setAttribute('data-theme','light');</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>work · tanish mendki</title>
@@ -19,6 +20,10 @@
       </nav>
       <div class="nav-right">
         <a href="TanishMendki_CV.pdf" download class="cv-btn">cv ↓</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
         <div class="social">
           <a href="https://open.spotify.com/user/tanish" target="_blank" aria-label="spotify">
             <svg viewBox="0 0 168 168"><path d="M84 0a84 84 0 100 168 84 84 0 000-168zm38.3 120.4c-1.4 2.4-4.4 3.1-6.8 1.7-18.7-11.5-42.2-14.1-70-7.6-2.7.6-5.4-1-6.1-3.7-.7-2.7 1-5.4 3.7-6.1 30.8-7 56.6-4.1 77.2 8.6 2.3 1.4 3 4.4 1.7 6.9zm9.7-20.4c-1.8 2.9-5.6 3.9-8.5 2.1-21.5-13.2-54.2-17-79.6-9.2-3.3 1-6.8-.9-7.8-4.2-1-3.3.9-6.8 4.2-7.8 30.3-9.2 66.7-5 91.5 10.4 2.9 1.8 3.9 5.6 2.1 8.7zm.8-22.4C107.9 64 67.4 62.7 41 70c-3.9 1.1-7.9-1.2-9-5.1-1.1-3.9 1.2-7.9 5.1-9C68.4 47 114.2 48.4 140.2 65.3c3.3 2.1 4.3 6.5 2.1 9.8z"/></svg>
@@ -51,6 +56,33 @@
 
       <div class="work-item">
         <div class="work-item-header">
+          <div class="work-item-title">Evaluating Representational Measures and Flexibility in Representational Geometry</div>
+          <div class="work-item-right">
+            <span class="work-item-date">august 2026 – present</span>
+            <span class="badge badge-active">active</span>
+          </div>
+        </div>
+        <div class="work-item-collab">PI: Nikolaus Kriegeskorte · Visual Inference Lab, Columbia Zuckerman Institute</div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">PyTorch</span>
+          <span class="tag">RSA</span><span class="tag">Representational Geometry</span>
+        </div>
+        <p class="work-item-desc">
+          Investigating how representational similarity measures — RSA, CKA, and related
+          metrics — capture, or fail to capture, the true geometry of neural and model
+          representations. The project probes how flexible each measure is to benign
+          transformations of representational geometry versus how sensitive it is to
+          meaningful structural differences, to clarify which measures can be trusted for
+          comparing brains and models.
+        </p>
+        <ul class="bullets">
+          <li>benchmarking representational similarity measures for sensitivity and invariance across synthetic and real representational geometries</li>
+          <li>building diagnostic test cases that reveal when standard measures conflate distinct representational structures</li>
+        </ul>
+      </div>
+
+      <div class="work-item">
+        <div class="work-item-header">
           <div class="work-item-title">Comparing Neural Representations: Theoretical vs. Deep Learning Models</div>
           <div class="work-item-right">
             <span class="work-item-date">july 2025 – present</span>
@@ -78,15 +110,22 @@
         </ul>
       </div>
 
+    </div>
+
+    <!-- Past Research -->
+    <div class="section-header">
+      <div class="section-node"></div>
+      <h2>past research</h2>
+    </div>
+
+    <div class="item-list">
+
       <div class="work-item">
         <div class="work-item-header">
           <div class="work-item-title">CNN Analysis of Background Distractors in Visual Search</div>
           <div class="work-item-right">
-            <span class="work-item-date">feb 2025 – present</span>
-            <div class="badge-row">
-              <span class="badge badge-active">active</span>
-              <span class="badge badge-award">URCA Grant</span>
-            </div>
+            <span class="work-item-date">feb 2025 – march 2026</span>
+            <span class="badge badge-award">URCA Grant</span>
           </div>
         </div>
         <div class="work-item-collab">collaborators: Miguel Eckstein (UC Santa Barbara)</div>
@@ -96,7 +135,7 @@
         </div>
         <p class="work-item-desc">
           A synthetic image generation pipeline and model introspection framework studying how CNNs
-          handle visual search in structured environments. This URCA grant funded project asks whether
+          handle visual search in structured environments. This URCA grant funded project asked whether
           neural networks solve visual search the same way humans do, or whether they cheat by
           relying on statistical regularities in backgrounds rather than the target itself.
         </p>
@@ -113,8 +152,7 @@
         <div class="work-item-header">
           <div class="work-item-title">Deceptive Descriptions in Visual AI Judgment</div>
           <div class="work-item-right">
-            <span class="work-item-date">2024 – present</span>
-            <span class="badge badge-active">active</span>
+            <span class="work-item-date">2024 – march 2026</span>
           </div>
         </div>
         <div class="work-item-collab">collaborators: VIU Lab, UCSB</div>
@@ -123,14 +161,11 @@
           <span class="tag">Human Studies</span><span class="tag">NLP</span>
         </div>
         <p class="work-item-desc">
-          Studying how humans and large language models evaluate fake expertise in image captions —
+          Studied how humans and large language models evaluate fake expertise in image captions —
           whether AI systems can detect and be deceived by misleading descriptions. We curated 360 images
           with intentionally misleading descriptions across five knowledge domains, collected human
           deceptiveness ratings, and compared them to GPT-4 and Gemini-2.5 judgments.
         </p>
-        <ul class="bullets">
-          <li>follow-up study underway on decision making and trust formation under deceptive information</li>
-        </ul>
       </div>
 
     </div>
@@ -278,5 +313,6 @@
     © 2026 tanish mendki · <a href="https://github.com/tmendki">tmendki</a>
   </footer>
 
+  <script src="theme.js" defer></script>
 </body>
 </html>
