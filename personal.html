@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <script>if (localStorage.getItem('theme') === 'light') document.documentElement.setAttribute('data-theme','light');</script>
   <meta charset="utf-8" />
+  <script>try { if (localStorage.getItem('theme') === 'light') document.documentElement.setAttribute('data-theme','light'); } catch (e) {}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>personal · tanish mendki</title>
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=6">
   <style>
     /* ===== CURRENTLY ===== */
     .currently-grid {
@@ -129,8 +129,8 @@
       <div class="nav-right">
         <a href="TanishMendki_CV.pdf" download class="cv-btn">cv ↓</a>
         <button id="theme-toggle" class="theme-toggle" aria-label="toggle theme">
-          <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-          <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" width="15" height="15"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="15" height="15"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
         </button>
         <div class="social">
           <a href="https://open.spotify.com/user/tanish" target="_blank" aria-label="spotify">

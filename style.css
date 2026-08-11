@@ -31,7 +31,7 @@
   --font: 'Space Grotesk', system-ui, sans-serif;
   --font-mono: 'DM Mono', 'Courier New', monospace;
 
-  --max-width: 860px;
+  --max-width: 1040px;
   --nav-height: 62px;
   --radius: 8px;
   --radius-sm: 5px;
@@ -159,24 +159,34 @@ nav a.active { color: var(--accent-light); }
 
 /* ===== THEME TOGGLE ===== */
 .theme-toggle {
+  -webkit-appearance: none;
+  appearance: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   width: 30px;
   height: 30px;
+  padding: 0;
+  margin: 0;
   border-radius: var(--radius-sm);
   color: var(--text-muted);
   background: none;
   border: none;
+  outline: none;
+  font: inherit;
+  line-height: 1;
   cursor: pointer;
   flex-shrink: 0;
 }
 
 .theme-toggle:hover { color: var(--accent-light); }
+.theme-toggle:focus-visible { outline: 1px solid var(--accent-border); }
 
 .theme-toggle svg {
   width: 15px;
   height: 15px;
+  flex-shrink: 0;
   stroke: currentColor;
   fill: none;
   stroke-width: 2;
