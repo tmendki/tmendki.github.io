@@ -1,14 +1,14 @@
 # Presentation assets
 
-Place presentation files in this directory, then replace the matching `forthcoming` label in `presentations.html` with a relative link.
+The presentation and publication materials linked from `presentations.html` live here so the public URLs stay under the same GitHub Pages site.
 
-Suggested filenames:
+Current files:
 
-- `vss-2026-talk-slides.pdf`
-- `vss-2026-talk-recording.mp4`
-- `unireps-2025-extended-abstract.pdf`
-- `unireps-2025-poster.pdf`
-- `urca-2025-poster.pdf`
-- `urca-2025-talk-recording.mp4`
+- `vss_talk_slides.pdf`
+- `unireps2025_extended_abstract.pdf`
+- `unireps_poster.pdf`
+- `urca_poster.pdf`
 
-Keeping the files here makes every public link a stable, repository-owned URL.
+The VSS recording is hosted externally on Google Drive because it exceeds the repository's practical file-size limit.
+
+The URCA oral presentation does not have a recording, so it intentionally has no media link.
