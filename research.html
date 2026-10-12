@@ -1,2 +1,97 @@
 <!doctype html>
-<html><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=work.html"><title>redirecting...</title></head><body></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Research by Tanish Mendki in computational neuroscience, vision, and representational geometry.">
+  <title>Research · Tanish Mendki</title>
+  <link rel="stylesheet" href="style.css?v=9">
+</head>
+<body class="content-page">
+  <main class="content-shell">
+    <header class="content-topbar">
+      <h1 class="moving-title">Research</h1>
+      <div class="page-contact">
+        <span>Contact</span>
+        <a href="mailto:tm3636@columbia.edu">tm3636@columbia.edu</a>
+        <a href="https://www.linkedin.com/in/tanishmendki" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+      <nav class="compact-nav" aria-label="Site navigation">
+        <a href="index.html" data-return="research">Home</a>
+        <a href="presentations.html">Presentations &amp; pubs</a>
+        <a href="TanishMendki_CV.pdf" target="_blank">CV ↗</a>
+      </nav>
+    </header>
+
+    <p class="page-intro">My work asks how visual systems—biological and artificial—organize information, and how we can tell when two systems are really doing the same thing.</p>
+
+    <section class="research-list" aria-label="Research questions">
+      <article class="research-entry">
+        <figure class="institution-mark columbia-mark">
+          <img src="assets/columbia-shield.svg" alt="Columbia University shield">
+          <figcaption>Columbia University</figcaption>
+        </figure>
+        <div class="research-body">
+          <p class="eyebrow">Current research · Columbia University</p>
+          <h2>How do we measure representational alignment between models and brains?</h2>
+          <div class="research-copy">
+            <p>Representational similarity analysis, CKA, and related methods compress complex geometries into a score. I study the assumptions inside those scores: which transformations they treat as harmless, which structural differences they notice, and when distinct representations can appear deceptively similar.</p>
+            <p>In the Visual Inference Lab, I build controlled synthetic geometries and diagnostic benchmarks that expose each measure’s invariances and failure modes. The broader goal is practical: make claims about brain–model correspondence more interpretable and more trustworthy.</p>
+            <p class="research-meta">Visual Inference Lab · Nikolaus Kriegeskorte · August 2026–present</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="research-entry">
+        <figure class="institution-mark">
+          <img src="assets/ucsb-logo.svg" alt="UC Santa Barbara logo">
+          <figcaption>UC Santa Barbara</figcaption>
+        </figure>
+        <div class="research-body">
+          <p class="eyebrow">Ongoing collaboration · UC Santa Barbara</p>
+          <h2>What makes a vision model brain-like?</h2>
+          <div class="research-copy">
+            <p>Newer and larger models do not automatically align better with the brain. I compare hand-engineered vision models—including HMAX and Gabor pyramids—with modern deep networks using human fMRI data from early visual cortex.</p>
+            <p>Our results show that carefully chosen inductive structure can outperform architectural scale in V1 similarity. I’m especially interested in identifying the model properties that drive alignment, rather than treating a single benchmark score as an explanation.</p>
+            <p class="research-meta">With Sudhanshu Srivastava &amp; Ansh Soni · NeurIPS UniReps 2025 · VSS 2026</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="research-entry">
+        <figure class="institution-mark">
+          <img src="assets/ucsb-logo.svg" alt="UC Santa Barbara logo">
+          <figcaption>UC Santa Barbara</figcaption>
+        </figure>
+        <div class="research-body">
+          <p class="eyebrow">Past research · UC Santa Barbara</p>
+          <h2>How do humans and neural networks perform visual search?</h2>
+          <div class="research-copy">
+            <p>Visual search rarely happens against a blank background. This project asked whether networks learn to use regularities in structured scenes as humans do—or whether they solve the task through shortcuts that bypass the target itself.</p>
+            <p>I built a synthetic-image pipeline and model-introspection framework, trained multiple CNN architectures to high accuracy, and tested what information actually supported their decisions. The models relied strongly on background context, revealing both an efficient strategy and an important point of divergence from human perception.</p>
+            <p class="research-meta">Vision &amp; Image Understanding Lab · Miguel P. Eckstein · URCA Grant 2024</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="research-entry">
+        <figure class="institution-mark">
+          <img src="assets/ucsb-logo.svg" alt="UC Santa Barbara logo">
+          <figcaption>UC Santa Barbara</figcaption>
+        </figure>
+        <div class="research-body">
+          <p class="eyebrow">Past research · UC Santa Barbara</p>
+          <h2>Can humans and AI recognize deceptive visual explanations?</h2>
+          <div class="research-copy">
+            <p>Fluent explanations can sound authoritative even when they are wrong. We curated 360 images with deliberately misleading descriptions across five knowledge domains, collected human judgments, and compared them with evaluations from GPT-4 and Gemini 2.5.</p>
+            <p>I’m interested in the gap between visual understanding and plausible language: when an evaluator notices that a description conflicts with an image, and when surface-level expertise is enough to persuade it.</p>
+            <p class="research-meta">Vision &amp; Image Understanding Lab · 2024–2026</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="site.js?v=2"></script>
+</body>
+</html>

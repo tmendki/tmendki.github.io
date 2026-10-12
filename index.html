@@ -1,242 +1,46 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <script>try { if (localStorage.getItem('theme') === 'light') document.documentElement.setAttribute('data-theme','light'); } catch (e) {}</script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>tanish mendki</title>
-  <link rel="stylesheet" href="style.css?v=6">
-  <style>
-    /* ===== HERO ===== */
-    .hero {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 4.5rem 2rem 3.5rem;
-    }
-
-    .hero-photo {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-      margin-bottom: 2rem;
-      border: 3px solid var(--border);
-    }
-
-    .hero h1 {
-      font-size: clamp(2.8rem, 6.5vw, 4.2rem);
-      font-weight: 800;
-      color: var(--text);
-      letter-spacing: -0.04em;
-      line-height: 1.0;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-caption {
-      margin-bottom: 1.6rem;
-    }
-
-    .hero-caption-line {
-      display: block;
-      font-size: 0.96rem;
-      color: var(--text-muted);
-      line-height: 1.75;
-    }
-
-    .hero-caption-line:first-child {
-      font-style: italic;
-    }
-
-    .hero-caption-line.mono {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--text-dim);
-    }
-
-    .hero-links {
-      display: flex;
-      gap: 1.4rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .hero-links a {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      text-decoration: none;
-    }
-
-    .hero-links a:hover { color: var(--text); }
-
-    .hero-links .divider { color: var(--text-dim); pointer-events: none; }
-
-    .hero-links .btn {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--accent-light);
-      border: 1px solid var(--accent-border);
-      padding: 0.32rem 0.8rem;
-      border-radius: var(--radius-sm);
-    }
-
-    .hero-links .btn:hover { background: var(--accent-dim); color: var(--accent-light); }
-
-    /* ===== ABOUT ===== */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 1.25rem;
-      align-items: start;
-    }
-
-    .about-text p {
-      font-size: 0.96rem;
-      color: var(--text-muted);
-      line-height: 1.85;
-    }
-
-    .about-text p + p { margin-top: 0.85rem; }
-
-    .about-awards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 1rem;
-    }
-
-    .about-facts { display: grid; gap: 0.6rem; }
-
-    .fact-row {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 0.8rem 1rem;
-    }
-
-    .fact-row:hover { border-color: var(--accent-border); }
-
-    .fact-key {
-      font-family: var(--font-mono);
-      font-size: 0.67rem;
-      color: var(--accent-light);
-      margin-bottom: 0.2rem;
-    }
-
-    .fact-val {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* ===== DIVIDER ===== */
-    .hero-divider {
-      max-width: var(--max-width);
-      margin: 0 auto 0;
-      padding: 0 2rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    @media (max-width: 768px) {
-      .hero { padding: 3rem 1rem 2.5rem; }
-      .about-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 2.5rem; }
-      .hero-photo { width: 128px; height: 128px; }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tanish Mendki is a computational neuroscience researcher studying how humans and models represent the visual world.">
+  <title>Tanish Mendki</title>
+  <link rel="stylesheet" href="style.css?v=9">
 </head>
-<body>
+<body class="home-page">
+  <main class="home-shell">
+    <section class="portrait-column" aria-label="Portrait and navigation">
+      <img class="portrait" src="images/tanish.png" alt="Tanish Mendki standing outdoors">
 
-  <header>
-    <div class="header-inner">
-      <a href="index.html" class="brand"><span class="bracket">[</span>tm<span class="bracket">]</span></a>
-      <nav>
-        <a href="index.html" class="active">home</a>
-        <a href="work.html">work</a>
-        <a href="experience.html">experience</a>
-        <a href="personal.html">personal</a>
+      <header class="intro-header">
+        <h1>Tanish Mendki</h1>
+        <p class="role">Staff Researcher, Visual Inference Lab @ Columbia<br>PI: Nikolaus Kriegeskorte</p>
+      </header>
+
+      <nav class="primary-links" aria-label="Primary navigation">
+        <a class="nav-link" data-page="research" href="research.html">Research</a>
+        <a class="nav-link" data-page="presentations" href="presentations.html">Presentations &amp; publications</a>
+        <a class="nav-link" href="TanishMendki_CV.pdf" target="_blank">CV <span aria-hidden="true">↗</span></a>
       </nav>
-      <div class="nav-right">
-        <a href="TanishMendki_CV.pdf" download class="cv-btn">cv ↓</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="toggle theme">
-          <svg class="icon-sun" viewBox="0 0 24 24" width="15" height="15"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" width="15" height="15"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-        </button>
-        <div class="social">
-          <a href="https://open.spotify.com/user/tanish" target="_blank" aria-label="spotify">
-            <svg viewBox="0 0 168 168"><path d="M84 0a84 84 0 100 168 84 84 0 000-168zm38.3 120.4c-1.4 2.4-4.4 3.1-6.8 1.7-18.7-11.5-42.2-14.1-70-7.6-2.7.6-5.4-1-6.1-3.7-.7-2.7 1-5.4 3.7-6.1 30.8-7 56.6-4.1 77.2 8.6 2.3 1.4 3 4.4 1.7 6.9zm9.7-20.4c-1.8 2.9-5.6 3.9-8.5 2.1-21.5-13.2-54.2-17-79.6-9.2-3.3 1-6.8-.9-7.8-4.2-1-3.3.9-6.8 4.2-7.8 30.3-9.2 66.7-5 91.5 10.4 2.9 1.8 3.9 5.6 2.1 8.7zm.8-22.4C107.9 64 67.4 62.7 41 70c-3.9 1.1-7.9-1.2-9-5.1-1.1-3.9 1.2-7.9 5.1-9C68.4 47 114.2 48.4 140.2 65.3c3.3 2.1 4.3 6.5 2.1 9.8z"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/in/tanishmendki" target="_blank" aria-label="linkedin">
-            <svg viewBox="0 0 448 512"><path d="M100.3 448H7V148.9h93.3V448zM53.7 108.1C24.1 108.1 0 83.5 0 53.9 0 24.3 24.6 0 54.4 0s54.4 24.3 54.4 53.9c-.1 29.6-24.5 54.2-55.1 54.2zM447.9 448h-93V302.4c0-34.7-.7-79.2-48.1-79.2-48.2 0-55.6 37.7-55.6 76.6V448h-93.1V148.9h89.5v40.8h1.3c12.5-23.7 43-48.7 88.5-48.7 94.7 0 112.1 62.4 112.1 143.3V448z"/></svg>
-          </a>
-          <a href="https://github.com/tmendki" target="_blank" aria-label="github">
-            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-          </a>
-        </div>
+
+      <div class="contact-block">
+        <span>Contact</span>
+        <a href="mailto:tm3636@columbia.edu">tm3636@columbia.edu</a>
+        <a href="https://www.linkedin.com/in/tanishmendki" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <!-- Hero -->
-  <section class="hero">
-    <img src="images/tanish.png" alt="tanish mendki" class="hero-photo" />
-    <h1>tanish mendki</h1>
-    <div class="hero-caption">
-      <span class="hero-caption-line">how do humans and models see the world?</span>
-      <span class="hero-caption-line mono">post-bac researcher, visual inference lab · columbia zuckerman institute</span>
-      <span class="hero-caption-line mono">ucsb, bs x2 · graduated march 2026</span>
-    </div>
-    <div class="hero-links">
-      <a href="mailto:tanishmendki@gmail.com">tanishmendki@gmail.com</a>
-      <span class="divider">/</span>
-      <a href="https://github.com/tmendki" target="_blank">github</a>
-      <span class="divider">/</span>
-      <a href="https://linkedin.com/in/tanishmendki" target="_blank">linkedin</a>
-      <span class="divider">/</span>
-      <a href="TanishMendki_CV.pdf" download class="btn">cv ↓</a>
-    </div>
-  </section>
-
-  <div class="hero-divider"></div>
-
-  <main>
-
-    <!-- About -->
-    <div class="section-header" style="border-bottom:none;">
-      <div class="section-node"></div>
-      <h2>about me</h2>
-    </div>
-
-    <div class="about-text" style="max-width:640px;">
-      <p>
-        i'm a post-baccalaureate researcher in the visual inference lab at columbia's
-        zuckerman institute, working with nikolaus kriegeskorte on how well the
-        measures we use to compare neural and model representations actually capture
-        representational geometry — and where they break.
-      </p>
-      <p>
-        before columbia, i graduated from uc santa barbara with degrees in statistics
-        and data science and psychological and brain sciences, where i spent three
-        years in the vision &amp; image understanding lab studying how humans and
-        artificial systems represent visual information.
-      </p>
-      <p>
-        outside the lab, i'm currently adjusting to life in new york city...
-      </p>
-      <div class="about-awards" style="margin-top:1rem;">
-        <span class="badge badge-award">2025 duval scholarship</span>
-        <span class="badge badge-workshop">2024 urca grant</span>
-        <span class="badge badge-workshop">l&s honors college</span>
-        <span class="badge badge-workshop">dean's list</span>
+    <section class="intro-column">
+      <div class="intro-copy">
+        <p class="lead">I study how humans and artificial systems see the world—and how confidently we can compare the representations they build.</p>
+        <p>At Columbia’s Visual Inference Lab, I work with Nikolaus Kriegeskorte on the measures used to compare neural and model representations. I’m interested in what these measures preserve, what they ignore, and where apparently strong brain–model alignment can be misleading.</p>
+        <p>Before Columbia, I completed dual bachelor’s degrees in Statistics &amp; Data Science and Psychological &amp; Brain Sciences at UC Santa Barbara. In the Vision &amp; Image Understanding Lab, I studied visual search, brain–model alignment, and the shortcuts neural networks learn from structured scenes.</p>
       </div>
-    </div>
 
+      <p class="availability">Currently in New York City · always happy to talk about vision, representation, and computational neuroscience.</p>
+    </section>
   </main>
 
-  <footer>
-    © 2026 tanish mendki · <a href="https://github.com/tmendki">tmendki</a>
-  </footer>
-
-  <script src="theme.js" defer></script>
+  <script src="site.js?v=2"></script>
 </body>
 </html>
