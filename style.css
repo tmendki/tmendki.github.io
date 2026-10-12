@@ -659,7 +659,7 @@ footer a { color: var(--accent-light); text-decoration: none; }
   max-width: 540px;
   aspect-ratio: 1 / 0.92;
   object-fit: cover;
-  object-position: 50% 38%;
+  object-position: 50% 48%;
   filter: saturate(0.88) contrast(1.02);
 }
 
