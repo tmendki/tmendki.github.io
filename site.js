@@ -1,75 +1,97 @@
-document.querySelectorAll('[data-page]').forEach((link) => {
-  link.addEventListener('click', (event) => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+const shellSelector = '.home-shell, .content-shell';
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    event.preventDefault();
-    const destination = link.href;
-    const range = document.createRange();
-    range.selectNodeContents(link);
-    const textRect = range.getBoundingClientRect();
-    const styles = getComputedStyle(link);
-    const ghost = document.createElement('span');
-    const contact = document.querySelector('.contact-block');
-    const contactRect = contact.getBoundingClientRect();
-    const contactStyles = getComputedStyle(contact);
-    const contactGhost = contact.cloneNode(true);
-    const compactLayout = window.innerWidth <= 850;
-    const containerOffset = Math.max(0, (window.innerWidth - 1480) / 2);
-    const pagePadding = compactLayout
-      ? 20
-      : Math.max(32, Math.min(window.innerWidth * 0.05, 88));
-    const targetInset = compactLayout ? 20 : containerOffset + pagePadding;
-    const targetSize = Math.max(48, Math.min(window.innerWidth * 0.062, 108.8));
-    const targetContactSize = Math.max(16, Math.min(window.innerWidth * 0.0155, 24.8));
-    const targetContactTop = compactLayout ? targetInset + 89.6 : targetInset;
+function markSharedElements(link) {
+  if (!link.matches('[data-page]')) return;
 
-    ghost.className = 'page-title-ghost';
-    ghost.textContent = link.dataset.page === 'presentations'
-      ? 'Presentations & pubs'
-      : link.textContent.trim();
-
-    Object.assign(ghost.style, {
-      left: `${textRect.left}px`,
-      top: `${textRect.top}px`,
-      fontFamily: styles.fontFamily,
-      fontSize: styles.fontSize,
-      fontWeight: styles.fontWeight,
-      letterSpacing: styles.letterSpacing,
-      lineHeight: styles.lineHeight
-    });
-    ghost.style.setProperty('--target-inset', `${targetInset}px`);
-    ghost.style.setProperty('--target-size', `${targetSize}px`);
-
-    contactGhost.className = 'contact-transition-ghost';
-    contactGhost.setAttribute('aria-hidden', 'true');
-    Object.assign(contactGhost.style, {
-      top: `${contactRect.top}px`,
-      width: `${contactRect.width}px`,
-      fontFamily: contactStyles.fontFamily,
-      fontSize: contactStyles.fontSize,
-      fontWeight: contactStyles.fontWeight,
-      lineHeight: contactStyles.lineHeight
-    });
-    if (compactLayout) {
-      contactGhost.style.left = `${contactRect.left}px`;
-      contactGhost.style.setProperty('--target-contact-left', `${targetInset}px`);
-    } else {
-      contactGhost.style.right = `${window.innerWidth - contactRect.right}px`;
-      contactGhost.style.setProperty('--target-contact-right', `${targetInset}px`);
-    }
-    contactGhost.style.setProperty('--target-contact-top', `${targetContactTop}px`);
-    contactGhost.style.setProperty('--target-contact-size', `${targetContactSize}px`);
-
-    document.body.appendChild(ghost);
-    document.body.appendChild(contactGhost);
-    document.body.classList.add('page-leaving');
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        ghost.classList.add('is-moving');
-        contactGhost.classList.add('is-moving');
-      });
-    });
-    window.setTimeout(() => { window.location.href = destination; }, 660);
+  document.querySelectorAll('[data-page]').forEach((pageLink) => {
+    pageLink.style.viewTransitionName = 'none';
   });
+  link.style.viewTransitionName = 'page-title';
+
+  const contact = document.querySelector('.contact-block');
+  if (contact) contact.style.viewTransitionName = 'page-contact';
+}
+
+function replacePage(nextDocument, nextUrl, updateHistory) {
+  const currentShell = document.querySelector(shellSelector);
+  const nextShell = nextDocument.querySelector(shellSelector);
+
+  if (!currentShell || !nextShell) throw new Error('Page shell not found');
+
+  currentShell.replaceWith(document.importNode(nextShell, true));
+  document.body.className = nextDocument.body.className;
+  document.title = nextDocument.title;
+
+  if (updateHistory) history.pushState({}, '', nextUrl);
+
+  bindInternalNavigation();
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+async function navigate(nextUrl, updateHistory = true, sourceLink = null) {
+  try {
+    const response = await fetch(nextUrl, { headers: { 'X-Requested-With': 'site-navigation' } });
+    if (!response.ok) throw new Error(`Navigation failed: ${response.status}`);
+
+    const nextDocument = new DOMParser().parseFromString(await response.text(), 'text/html');
+    const swap = () => replacePage(nextDocument, nextUrl, updateHistory);
+
+    if (sourceLink) markSharedElements(sourceLink);
+
+    if (!reduceMotion.matches && typeof document.startViewTransition === 'function') {
+      await document.startViewTransition(swap).finished;
+      return;
+    }
+
+    const currentShell = document.querySelector(shellSelector);
+    if (!reduceMotion.matches && currentShell) {
+      await currentShell.animate(
+        [{ opacity: 1 }, { opacity: 0 }],
+        { duration: 130, easing: 'ease-out', fill: 'forwards' }
+      ).finished;
+    }
+
+    swap();
+
+    const nextShell = document.querySelector(shellSelector);
+    if (!reduceMotion.matches && nextShell) {
+      nextShell.animate(
+        [{ opacity: 0 }, { opacity: 1 }],
+        { duration: 210, easing: 'ease-out' }
+      );
+    }
+  } catch (error) {
+    window.location.href = nextUrl;
+  }
+}
+
+function bindInternalNavigation() {
+  document.querySelectorAll('a[href]').forEach((link) => {
+    if (link.dataset.navigationBound === 'true' || link.target === '_blank') return;
+
+    const url = new URL(link.href, window.location.href);
+    const isSitePage = url.origin === window.location.origin && url.pathname.endsWith('.html');
+    if (!isSitePage) return;
+
+    link.dataset.navigationBound = 'true';
+    link.addEventListener('click', (event) => {
+      const isStandardNavigation = event.button === 0
+        && !event.metaKey
+        && !event.ctrlKey
+        && !event.shiftKey
+        && !event.altKey;
+
+      if (!isStandardNavigation) return;
+
+      event.preventDefault();
+      navigate(url.href, true, link);
+    });
+  });
+}
+
+bindInternalNavigation();
+
+window.addEventListener('popstate', () => {
+  navigate(window.location.href, false);
 });
